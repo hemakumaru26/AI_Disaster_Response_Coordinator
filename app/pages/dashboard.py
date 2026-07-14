@@ -1,50 +1,33 @@
 import streamlit as st
-import pandas as pd
+import requests
 
 st.title("📊 Disaster Dashboard")
 
-import os
+response = requests.get(
+    "http://127.0.0.1:8000/emergency/dashboard"
+)
 
-if os.path.exists("database/incidents.csv"):
+if response.status_code == 200:
 
-    df = pd.read_csv("database/incidents.csv")
+    stats = response.json()
+
+    col1, col2, col3 = st.columns(3)
+
+    col1.metric(
+        "Total Incidents",
+        stats["total"]
+    )
+
+    col2.metric(
+        "Critical",
+        stats["critical"]
+    )
+
+    col3.metric(
+        "Active",
+        stats["active"]
+    )
 
 else:
 
-    df = pd.DataFrame(
-        columns=[
-            "reporter",
-            "disaster",
-            "location",
-            "priority",
-            "status"
-        ]
-    )
-
-col1, col2, col3, col4 = st.columns(4)
-
-with col1:
-    st.metric("🚨 Incidents", len(df))
-
-with col2:
-    st.metric("🏥 Hospitals", 18)
-
-with col3:
-    st.metric("🏠 Shelters", 34)
-
-with col4:
-    st.metric("🙋 Volunteers", 62)
-
-st.divider()
-
-st.subheader("Recent Incidents")
-
-st.dataframe(df, use_container_width=True)
-
-st.divider()
-
-st.subheader("Priority Distribution")
-
-priority = df["priority"].value_counts()
-
-st.bar_chart(priority)
+    st.error("Dashboard unavailable.")

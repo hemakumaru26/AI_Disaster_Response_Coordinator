@@ -1,27 +1,30 @@
 import streamlit as st
-
-import streamlit as st
 import pandas as pd
-import os
+import requests
 
 st.title("📜 Incident History")
 
-if os.path.exists("database/incidents.csv"):
+response = requests.get(
+    "http://127.0.0.1:8000/emergency/history"
+)
 
-    df = pd.read_csv("database/incidents.csv")
+if response.status_code == 200:
 
-    st.dataframe(df, use_container_width=True)
+    incidents = response.json()
+
+    if incidents:
+
+        df = pd.DataFrame(incidents)
+
+        st.dataframe(
+            df,
+            use_container_width=True
+        )
+
+    else:
+
+        st.info("No incidents available.")
 
 else:
 
-    st.info("No incidents reported yet.")
-
-st.table(
-    {
-        "Incident ID": [],
-        "Disaster": [],
-        "Location": [],
-        "Priority": [],
-        "Status": []
-    }
-)
+    st.error("Unable to fetch incident history.")

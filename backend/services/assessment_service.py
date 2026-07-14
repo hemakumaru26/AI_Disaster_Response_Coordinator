@@ -1,19 +1,38 @@
-def assess_incident(incident):
+from backend.models.incident_model import save_incident
 
-    if incident.people_affected >= 100:
 
-        priority = "Critical"
+def analyze_incident(incident):
+    """
+    Analyze an incident, assign priority,
+    save it into SQLite, and return the result.
+    """
 
-    elif incident.people_affected >= 50:
+    priority = "LOW"
 
-        priority = "High"
+    disaster = incident["disaster_type"].lower()
+    people = incident["people_affected"]
 
-    elif incident.people_affected >= 10:
+    if disaster in ["earthquake", "cyclone"]:
+        priority = "CRITICAL"
 
-        priority = "Medium"
+    elif people >= 100:
+        priority = "CRITICAL"
 
-    else:
+    elif people >= 50:
+        priority = "HIGH"
 
-        priority = "Low"
+    elif people >= 10:
+        priority = "MEDIUM"
 
-    return priority
+    incident["priority"] = priority
+    incident["status"] = "received"
+
+    # Save into SQLite database
+    incident_id = save_incident(incident)
+
+    return {
+        "id": incident_id,
+        "status": incident["status"],
+        "priority": incident["priority"],
+        "incident": incident
+    }

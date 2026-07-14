@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 
 from backend.api.emergency import router as emergency_router
+from backend.database.connection import create_tables
+
+# Create database tables automatically
+create_tables()
 
 app = FastAPI(
     title="AI Disaster Response Coordinator",
@@ -8,6 +12,7 @@ app = FastAPI(
     description="Agentic AI Disaster Management System"
 )
 
+# Register API routes
 app.include_router(
     emergency_router,
     prefix="/emergency",
