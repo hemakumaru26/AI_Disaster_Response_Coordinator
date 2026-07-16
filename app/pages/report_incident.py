@@ -44,27 +44,83 @@ with st.form("incident_form"):
             "description": description
         }
 
-        response = requests.post(
-            "http://127.0.0.1:8000/emergency/report",
-            json=payload
-        )
+        try:
 
-        result = response.json()
+            response = requests.post(
+                "http://127.0.0.1:8000/emergency/report",
+                json=payload,
+                timeout=30
+            )
 
-        st.success("Emergency Submitted Successfully!")
+            response.raise_for_status()
 
-        st.subheader("📋 Incident Summary")
+            result = response.json()
 
-        col1, col2 = st.columns(2)
+            assessment = result["assessment"]
 
-        with col1:
-            st.metric("Priority", result["priority"])
-            st.metric("Status", result["status"])
+            st.success("✅ Emergency Submitted Successfully!")
 
-        with col2:
-            st.metric("Disaster", disaster_type)
-            st.metric("People", people)
+            st.subheader("🤖 AI Assessment")
 
-        st.divider()
+            col1, col2 = st.columns(2)
 
-        st.json(result)
+            with col1:
+                st.metric(
+                    "Priority",
+                    assessment["priority"]
+                )
+
+                st.metric(
+                    "Severity Score",
+                    assessment["severity_score"]
+                )
+
+            with col2:
+                st.metric(
+                    "Incident ID",
+                    result["incident_id"]
+                )
+
+                st.metric(
+                    "People Affected",
+                    people
+                )
+
+            st.divider()
+
+            st.subheader("🚑 Recommended Resources")
+
+            if assessment["resources"]:
+
+                for resource in assessment["resources"]:
+                    st.success(resource)
+
+            else:
+                st.info("No special resources required.")
+
+            st.divider()
+
+            st.subheader("🧠 AI Explanation")
+
+            st.info(
+                assessment["reason"]
+            )
+
+        except requests.exceptions.ConnectionError:
+
+            st.error(
+                "❌ Unable to connect to FastAPI server.\n\n"
+                "Please start the backend first."
+            )
+
+        except requests.exceptions.Timeout:
+
+            st.error(
+                "❌ Request timed out while waiting for AI response."
+            )
+
+        except Exception as e:
+
+            st.error(
+                f"Unexpected Error:\n\n{e}"
+            )

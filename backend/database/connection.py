@@ -19,18 +19,26 @@ def create_tables():
     cursor = conn.cursor()
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS incidents (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        reporter_name TEXT,
-        phone TEXT,
-        disaster_type TEXT,
-        location TEXT,
-        people_affected INTEGER,
-        description TEXT,
-        priority TEXT,
-        status TEXT
-    )
-    """)
+CREATE TABLE IF NOT EXISTS incidents (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    reporter_name TEXT,
+    phone TEXT,
+
+    disaster_type TEXT,
+    location TEXT,
+
+    people_affected INTEGER,
+    description TEXT,
+
+    priority TEXT,
+    severity_score INTEGER,
+
+    resources TEXT,
+
+    status TEXT
+)
+""")
 
     conn.commit()
     conn.close()

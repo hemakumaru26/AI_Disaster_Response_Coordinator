@@ -1,7 +1,12 @@
 from backend.database.connection import get_connection
 
 
-def save_incident(data):
+def save_incident(
+    incident,
+    priority,
+    severity_score,
+    resources
+):
     """
     Save a new emergency incident into SQLite.
     """
@@ -19,18 +24,22 @@ def save_incident(data):
             people_affected,
             description,
             priority,
+            severity_score,
+            resources,
             status
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
-        data["reporter_name"],
-        data["phone"],
-        data["disaster_type"],
-        data["location"],
-        data["people_affected"],
-        data["description"],
-        data["priority"],
-        data["status"]
+        incident.reporter_name,
+        incident.phone,
+        incident.disaster_type,
+        incident.location,
+        incident.people_affected,
+        incident.description,
+        priority,
+        severity_score,
+        ", ".join(resources),
+        "received"
     ))
 
     conn.commit()
@@ -48,7 +57,6 @@ def get_all_incidents():
     """
 
     conn = get_connection()
-
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -70,7 +78,6 @@ def get_dashboard_stats():
     """
 
     conn = get_connection()
-
     cursor = conn.cursor()
 
     cursor.execute("SELECT COUNT(*) FROM incidents")
@@ -79,14 +86,14 @@ def get_dashboard_stats():
     cursor.execute("""
         SELECT COUNT(*)
         FROM incidents
-        WHERE priority='CRITICAL'
+        WHERE priority = 'CRITICAL'
     """)
     critical = cursor.fetchone()[0]
 
     cursor.execute("""
         SELECT COUNT(*)
         FROM incidents
-        WHERE status='received'
+        WHERE status = 'received'
     """)
     active = cursor.fetchone()[0]
 
