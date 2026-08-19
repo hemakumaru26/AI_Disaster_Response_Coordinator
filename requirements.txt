@@ -13,3 +13,5 @@ requests
 pydantic
 sqlalchemy
 pandas
+folium
+streamlit-folium

@@ -1,5 +1,8 @@
 import requests
 import streamlit as st
+from streamlit_folium import st_folium
+
+from backend.services.shelter_map_service import create_shelter_allocation_map
 
 st.title("🚨 Emergency Incident Reporting")
 
@@ -97,6 +100,32 @@ with st.form("incident_form"):
 
             else:
                 st.info("No special resources required.")
+
+            st.divider()
+
+            st.subheader("Shelter Allocation Map")
+
+            incident_coordinates = result.get("incident_coordinates")
+            nearest_shelters = result.get("nearest_shelters", [])
+
+            if incident_coordinates and nearest_shelters:
+                shelter_map = create_shelter_allocation_map(
+                    incident_coordinates,
+                    nearest_shelters,
+                )
+                if shelter_map is not None:
+                    st_folium(
+                        shelter_map,
+                        width=None,
+                        height=500,
+                        key=f"shelter_map_{result['incident_id']}",
+                    )
+                else:
+                    st.info("Shelter map cannot be displayed for this incident.")
+            elif result.get("shelter_map_message"):
+                st.info(result["shelter_map_message"])
+            else:
+                st.info("No suitable shelters were found for this incident.")
 
             st.divider()
 
