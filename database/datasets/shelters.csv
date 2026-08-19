@@ -1,0 +1,381 @@
+id,name,district,address,latitude,longitude,capacity,contact
+1,Greater Chennai Corporation Relief Centre,Chennai,Ripon Building Chennai,13.0827,80.2707,1500,04425384520
+2,Anna University Shelter,Chennai,Guindy Chennai,13.0109,80.2337,1200,04422357004
+3,YMCA Royapettah Relief Centre,Chennai,Royapettah Chennai,13.0553,80.2635,900,04428133028
+4,Government Higher Secondary School Velachery,Chennai,Velachery Chennai,12.9756,80.2205,850,04422592750
+5,Jawaharlal Nehru Indoor Stadium,Chennai,Park Town Chennai,13.0894,80.2871,3000,04425368672
+6,Community Hall Tambaram,Chennai,Tambaram Chennai,12.9249,80.1000,1000,04422262000
+7,Dr MGR Janaki College Relief Camp,Chennai,Adyar Chennai,13.0067,80.2573,800,04424910873
+8,Government School Perambur Shelter,Chennai,Perambur Chennai,13.1186,80.2337,700,04425515555
+9,Sri Ramachandra University Relief Camp,Chennai,Porur Chennai,13.0381,80.1732,1500,04424768027
+10,Chennai Trade Centre Emergency Shelter,Chennai,Nandambakkam Chennai,13.0100,80.1706,2500,04422542000
+11,Coimbatore District Relief Centre,Coimbatore,Coimbatore District Collectorate Coimbatore,11.0168,76.9558,1500,1077
+12,Coimbatore Corporation Emergency Relief Centre,Coimbatore,Coimbatore Corporation Main Office Coimbatore,11.0168,76.9559,1200,1077
+13,Government Arts College Relief Centre,Coimbatore,Government Arts College Road Coimbatore,11.0055,76.9661,1000,1077
+14,PSG College of Technology Emergency Shelter,Coimbatore,Peelamedu Coimbatore,11.0241,77.0072,1500,1077
+15,Government Higher Secondary School Ganapathy,Coimbatore,Ganapathy Coimbatore,11.0456,76.9960,900,1077
+16,Government Higher Secondary School Singanallur,Coimbatore,Singanallur Coimbatore,11.0001,77.0220,900,1077
+17,Government Higher Secondary School Saibaba Colony,Coimbatore,Saibaba Colony Coimbatore,11.0245,76.9384,800,1077
+18,Government Higher Secondary School Ukkadam,Coimbatore,Ukkadam Coimbatore,10.9910,76.9597,900,1077
+19,Government Higher Secondary School Pollachi,Coimbatore,Pollachi Coimbatore,10.6580,77.0085,1000,1077
+20,Government Higher Secondary School Mettupalayam,Coimbatore,Mettupalayam Coimbatore,11.3000,76.9360,1000,1077
+21,Tiruppur District Relief Centre,Tiruppur,Tiruppur District Collectorate Tiruppur,11.1085,77.3411,1500,1077
+22,Tiruppur Corporation Emergency Relief Centre,Tiruppur,Tiruppur Corporation Office Tiruppur,11.1085,77.3411,1200,1077
+23,Jaivabai Municipal Girls Higher Secondary School,Tiruppur,Tiruppur North Tiruppur,11.1080,77.3415,900,1077
+24,KSC Government Higher Secondary School,Tiruppur,Tiruppur City Tiruppur,11.1090,77.3480,900,1077
+25,Nanjappa Boys Higher Secondary School,Tiruppur,Tiruppur City Tiruppur,11.1070,77.3460,900,1077
+26,Government Higher Secondary School Avinashi,Tiruppur,Avinashi Tiruppur District,11.1920,77.2680,800,1077
+27,Government Higher Secondary School Palladam,Tiruppur,Palladam Tiruppur District,10.9910,77.2860,800,1077
+28,Government Higher Secondary School Kangeyam,Tiruppur,Kangeyam Tiruppur District,11.0050,77.5600,800,1077
+29,Government Higher Secondary School Dharapuram,Tiruppur,Dharapuram Tiruppur District,10.7380,77.5320,900,1077
+30,Government Higher Secondary School Udumalaipettai,Tiruppur,Udumalaipettai Tiruppur District,10.5880,77.2470,900,1077
+31,Salem District Relief Centre,Salem,Salem District Collectorate Salem,11.6643,78.1460,1500,1077
+32,Salem Corporation Emergency Relief Centre,Salem,Salem Corporation Office Salem,11.6643,78.1460,1200,1077
+33,Government Higher Secondary School Hasthampatti,Salem,Hasthampatti Salem,11.6750,78.1570,900,1077
+34,Government Higher Secondary School Ammapet,Salem,Ammapet Salem,11.6505,78.1705,900,1077
+35,Government Higher Secondary School Suramangalam,Salem,Suramangalam Salem,11.6715,78.1150,900,1077
+36,Government Higher Secondary School Attur,Salem,Attur Salem District,11.5942,78.6010,900,1077
+37,Government Higher Secondary School Mettur,Salem,Mettur Salem District,11.7867,77.8000,900,1077
+38,Government Higher Secondary School Sankari,Salem,Sankari Salem District,11.4770,77.8720,800,1077
+39,Government Higher Secondary School Edappadi,Salem,Edappadi Salem District,11.5860,77.8380,800,1077
+40,Government Higher Secondary School Omalur,Salem,Omalur Salem District,11.7400,78.0450,800,1077
+41,Erode District Relief Centre,Erode,Erode District Collectorate Erode,11.3410,77.7172,1500,1077
+42,Erode Corporation Emergency Relief Centre,Erode,Erode Corporation Office Erode,11.3410,77.7172,1200,1077
+43,Government Higher Secondary School Erode Town,Erode,Erode Town Erode,11.3400,77.7200,900,1077
+44,Government Higher Secondary School Bhavani,Erode,Bhavani Erode District,11.4450,77.6820,900,1077
+45,Government Higher Secondary School Gobichettipalayam,Erode,Gobichettipalayam Erode District,11.4550,77.4420,1000,1077
+46,Government Higher Secondary School Sathyamangalam,Erode,Sathyamangalam Erode District,11.5050,77.2380,900,1077
+47,Government Higher Secondary School Perundurai,Erode,Perundurai Erode District,11.2750,77.5830,800,1077
+48,Government Higher Secondary School Bhavanisagar,Erode,Bhavanisagar Erode District,11.4770,77.1010,800,1077
+49,Government Higher Secondary School Kodumudi,Erode,Kodumudi Erode District,11.0750,77.8840,800,1077
+50,Government Higher Secondary School Anthiyur,Erode,Anthiyur Erode District,11.5780,77.5890,800,1077
+51,Namakkal District Relief Centre,Namakkal,Namakkal District Collectorate Namakkal,11.2194,78.1677,1500,1077
+52,Namakkal Municipal Emergency Relief Centre,Namakkal,Namakkal Municipality Namakkal,11.2194,78.1677,1000,1077
+53,Government Higher Secondary School Namakkal,Namakkal,Namakkal Town Namakkal,11.2200,78.1700,900,1077
+54,Government Higher Secondary School Rasipuram,Namakkal,Rasipuram Namakkal District,11.4600,78.1870,900,1077
+55,Government Higher Secondary School Tiruchengode,Namakkal,Tiruchengode Namakkal District,11.3790,77.8940,1000,1077
+56,Government Higher Secondary School Paramathi Velur,Namakkal,Paramathi Velur Namakkal District,11.1100,78.0000,800,1077
+57,Government Higher Secondary School Komarapalayam,Namakkal,Komarapalayam Namakkal District,11.4450,77.7300,900,1077
+58,Government Higher Secondary School Senthamangalam,Namakkal,Senthamangalam Namakkal District,11.4500,78.2400,800,1077
+59,Government Higher Secondary School Mohanur,Namakkal,Mohanur Namakkal District,11.0500,78.0500,800,1077
+60,Government Higher Secondary School Kollimalai,Namakkal,Kollimalai Namakkal District,11.2500,78.3500,700,1077
+61,Karur District Relief Centre,Karur,Karur District Collectorate Karur,10.9601,78.0766,1500,1077
+62,Karur Municipal Emergency Relief Centre,Karur,Karur Municipality Karur,10.9601,78.0766,1000,1077
+63,Government Higher Secondary School Karur,Karur,Karur Town Karur,10.9600,78.0800,900,1077
+64,Government Higher Secondary School Kulithalai,Karur,Kulithalai Karur District,10.9340,78.4120,900,1077
+65,Government Higher Secondary School Aravakurichi,Karur,Aravakurichi Karur District,10.7700,77.9200,800,1077
+66,Government Higher Secondary School Krishnarayapuram,Karur,Krishnarayapuram Karur District,10.9600,78.2600,800,1077
+67,Government Higher Secondary School Pugalur,Karur,Pugalur Karur District,11.0800,77.9500,800,1077
+68,Government Higher Secondary School Velayuthampalayam,Karur,Velayuthampalayam Karur District,11.0800,77.9700,800,1077
+69,Government Higher Secondary School Thanthoni,Karur,Thanthoni Karur District,10.9500,78.1000,800,1077
+70,Government Higher Secondary School Kadavur,Karur,Kadavur Karur District,10.7000,78.1200,700,1077
+71,Madurai District Relief Centre,Madurai,Madurai District Collectorate Madurai,9.9252,78.1198,1500,1077
+72,Madurai Corporation Emergency Relief Centre,Madurai,Madurai Corporation Office Madurai,9.9252,78.1198,1200,1077
+73,Government Higher Secondary School Tallakulam,Madurai,Tallakulam Madurai,9.9390,78.1260,900,1077
+74,Government Higher Secondary School Anna Nagar,Madurai,Anna Nagar Madurai,9.9150,78.1500,900,1077
+75,Government Higher Secondary School Sellur,Madurai,Sellur Madurai,9.9410,78.1080,900,1077
+76,Government Higher Secondary School Thiruppalai,Madurai,Thiruppalai Madurai,9.9620,78.1530,900,1077
+77,Government Higher Secondary School Thirumangalam,Madurai,Thirumangalam Madurai District,9.8250,78.0500,900,1077
+78,Government Higher Secondary School Melur,Madurai,Melur Madurai District,10.0320,78.3390,900,1077
+79,Government Higher Secondary School Usilampatti,Madurai,Usilampatti Madurai District,9.9690,77.7870,800,1077
+80,Government Higher Secondary School Vadipatti,Madurai,Vadipatti Madurai District,10.0840,77.9620,800,1077
+81,Tiruchirappalli District Relief Centre,Tiruchirappalli,Tiruchirappalli District Collectorate,10.7905,78.7047,1500,1077
+82,Tiruchirappalli Corporation Emergency Relief Centre,Tiruchirappalli,Tiruchirappalli Corporation Office,10.7905,78.7047,1200,1077
+83,Government Higher Secondary School Srirangam,Tiruchirappalli,Srirangam Tiruchirappalli,10.8624,78.6947,1000,1077
+84,Government Higher Secondary School Cantonment,Tiruchirappalli,Cantonment Tiruchirappalli,10.8050,78.6850,900,1077
+85,Government Higher Secondary School Woraiyur,Tiruchirappalli,Woraiyur Tiruchirappalli,10.8270,78.6750,900,1077
+86,Government Higher Secondary School Thillai Nagar,Tiruchirappalli,Thillai Nagar Tiruchirappalli,10.8130,78.6870,900,1077
+87,Government Higher Secondary School Manapparai,Tiruchirappalli,Manapparai Tiruchirappalli District,10.6070,78.4250,900,1077
+88,Government Higher Secondary School Musiri,Tiruchirappalli,Musiri Tiruchirappalli District,10.9550,78.4450,800,1077
+89,Government Higher Secondary School Thuraiyur,Tiruchirappalli,Thuraiyur Tiruchirappalli District,11.1400,78.5980,800,1077
+90,Government Higher Secondary School Lalgudi,Tiruchirappalli,Lalgudi Tiruchirappalli District,10.8740,78.8190,800,1077
+91,Thanjavur District Relief Centre,Thanjavur,Thanjavur District Collectorate,10.7870,79.1378,1500,1077
+92,Thanjavur Corporation Emergency Relief Centre,Thanjavur,Thanjavur Municipal Office,10.7867,79.1378,1200,1077
+93,Government Higher Secondary School Thanjavur Town,Thanjavur,Thanjavur Town,10.7850,79.1400,900,1077
+94,Government Higher Secondary School Medical College Road,Thanjavur,Medical College Road Thanjavur,10.7600,79.1000,900,1077
+95,Government Higher Secondary School Kumbakonam,Thanjavur,Kumbakonam Thanjavur District,10.9600,79.3840,1000,1077
+96,Government Higher Secondary School Pattukkottai,Thanjavur,Pattukkottai Thanjavur District,10.4230,79.3190,900,1077
+97,Government Higher Secondary School Papanasam,Thanjavur,Papanasam Thanjavur District,10.9270,79.2700,800,1077
+98,Government Higher Secondary School Orathanadu,Thanjavur,Orathanadu Thanjavur District,10.6250,79.2700,800,1077
+99,Government Higher Secondary School Peravurani,Thanjavur,Peravurani Thanjavur District,10.3000,79.1900,800,1077
+100,Government Higher Secondary School Thiruvaiyaru,Thanjavur,Thiruvaiyaru Thanjavur District,10.8840,79.1030,800,1077
+101,Dindigul District Relief Centre,Dindigul,Dindigul District Collectorate,10.3624,77.9695,1500,1077
+102,Dindigul Municipal Emergency Relief Centre,Dindigul,Dindigul Municipality,10.3624,77.9695,1100,1077
+103,Government Higher Secondary School Dindigul Town,Dindigul,Dindigul Town,10.3620,77.9700,900,1077
+104,Government Higher Secondary School Natham,Dindigul,Natham Dindigul District,10.2270,78.1900,800,1077
+105,Government Higher Secondary School Oddanchatram,Dindigul,Oddanchatram Dindigul District,10.4890,77.7570,900,1077
+106,Government Higher Secondary School Palani,Dindigul,Palani Dindigul District,10.4500,77.5200,1000,1077
+107,Government Higher Secondary School Vedasandur,Dindigul,Vedasandur Dindigul District,10.5300,77.9500,800,1077
+108,Government Higher Secondary School Nilakottai,Dindigul,Nilakottai Dindigul District,10.1650,77.8670,800,1077
+109,Government Higher Secondary School Kodaikanal,Dindigul,Kodaikanal Dindigul District,10.2381,77.4892,700,1077
+110,Government Higher Secondary School Batlagundu,Dindigul,Batlagundu Dindigul District,10.1610,77.7580,800,1077
+111,Tirunelveli District Relief Centre,Tirunelveli,Tirunelveli District Collectorate,8.7139,77.7567,1500,1077
+112,Tirunelveli Corporation Emergency Relief Centre,Tirunelveli,Tirunelveli Corporation Office,8.7139,77.7567,1200,1077
+113,Government Higher Secondary School Palayamkottai,Tirunelveli,Palayamkottai Tirunelveli,8.7130,77.7510,1000,1077
+114,Government Higher Secondary School Melapalayam,Tirunelveli,Melapalayam Tirunelveli,8.7070,77.7250,900,1077
+115,Government Higher Secondary School Ambasamudram,Tirunelveli,Ambasamudram Tirunelveli District,8.7100,77.4520,900,1077
+116,Government Higher Secondary School Tenkasi Road,Tirunelveli,Tenkasi Road Tirunelveli District,8.7600,77.7000,800,1077
+117,Government Higher Secondary School Nanguneri,Tirunelveli,Nanguneri Tirunelveli District,8.4930,77.6580,800,1077
+118,Government Higher Secondary School Valliyur,Tirunelveli,Valliyur Tirunelveli District,8.3830,77.6120,800,1077
+119,Government Higher Secondary School Shencottai,Tirunelveli,Shencottai Tirunelveli District,8.9800,77.2500,800,1077
+120,Government Higher Secondary School Radhapuram,Tirunelveli,Radhapuram Tirunelveli District,8.2700,77.6800,800,1077
+121,Thoothukudi District Relief Centre,Thoothukudi,Thoothukudi District Collectorate,8.8040,78.1453,1500,1077
+122,Thoothukudi Corporation Emergency Relief Centre,Thoothukudi,Thoothukudi Corporation Office,8.8050,78.1450,1200,1077
+123,Government Higher Secondary School Thoothukudi Town,Thoothukudi,Thoothukudi Town,8.8050,78.1500,1000,1077
+124,Government Higher Secondary School Millerpuram,Thoothukudi,Millerpuram Thoothukudi,8.8100,78.1350,900,1077
+125,Government Higher Secondary School Kovilpatti,Thoothukudi,Kovilpatti Thoothukudi District,9.1700,77.8700,1000,1077
+126,Government Higher Secondary School Tiruchendur,Thoothukudi,Tiruchendur Thoothukudi District,8.4970,78.1200,900,1077
+127,Government Higher Secondary School Srivaikuntam,Thoothukudi,Srivaikuntam Thoothukudi District,8.6300,77.9200,800,1077
+128,Government Higher Secondary School Ettayapuram,Thoothukudi,Ettayapuram Thoothukudi District,9.1450,77.9900,800,1077
+129,Government Higher Secondary School Vilathikulam,Thoothukudi,Vilathikulam Thoothukudi District,9.1300,78.1700,800,1077
+130,Government Higher Secondary School Sathankulam,Thoothukudi,Sathankulam Thoothukudi District,8.4400,77.9200,800,1077
+131,Virudhunagar District Relief Centre,Virudhunagar,Virudhunagar District Collectorate,9.5851,77.9574,1500,1077
+132,Virudhunagar Municipal Emergency Relief Centre,Virudhunagar,Virudhunagar Municipality,9.5850,77.9580,1100,1077
+133,Government Higher Secondary School Virudhunagar,Virudhunagar,Virudhunagar Town,9.5850,77.9600,900,1077
+134,Government Higher Secondary School Sivakasi,Virudhunagar,Sivakasi Virudhunagar District,9.4500,77.8000,1000,1077
+135,Government Higher Secondary School Rajapalayam,Virudhunagar,Rajapalayam Virudhunagar District,9.4500,77.5500,1000,1077
+136,Government Higher Secondary School Aruppukkottai,Virudhunagar,Aruppukkottai Virudhunagar District,9.5100,78.0900,900,1077
+137,Government Higher Secondary School Srivilliputhur,Virudhunagar,Srivilliputhur Virudhunagar District,9.5120,77.6330,900,1077
+138,Government Higher Secondary School Sattur,Virudhunagar,Sattur Virudhunagar District,9.3600,77.9200,800,1077
+139,Government Higher Secondary School Watrap,Virudhunagar,Watrap Virudhunagar District,9.6200,77.6300,700,1077
+140,Government Higher Secondary School Kariapatti,Virudhunagar,Kariapatti Virudhunagar District,9.6800,78.1000,800,1077
+141,Sivaganga District Relief Centre,Sivaganga,Sivaganga District Collectorate,9.8433,78.4809,1500,1077
+142,Sivaganga Municipal Emergency Relief Centre,Sivaganga,Sivaganga Municipality,9.8433,78.4809,1000,1077
+143,Government Higher Secondary School Sivaganga,Sivaganga,Sivaganga Town,9.8450,78.4820,900,1077
+144,Government Higher Secondary School Karaikudi,Sivaganga,Karaikudi Sivaganga District,10.0730,78.7800,1100,1077
+145,Government Higher Secondary School Devakottai,Sivaganga,Devakottai Sivaganga District,9.9470,78.8200,900,1077
+146,Government Higher Secondary School Manamadurai,Sivaganga,Manamadurai Sivaganga District,9.6900,78.9300,900,1077
+147,Government Higher Secondary School Ilayangudi,Sivaganga,Ilayangudi Sivaganga District,9.6300,78.6300,800,1077
+148,Government Higher Secondary School Tiruppathur,Sivaganga,Tiruppathur Sivaganga District,10.1300,78.6200,800,1077
+149,Government Higher Secondary School Kalayarkoil,Sivaganga,Kalayarkoil Sivaganga District,9.8500,78.6500,800,1077
+150,Government Higher Secondary School Singampunari,Sivaganga,Singampunari Sivaganga District,10.2400,78.4200,800,1077
+151,Kanyakumari District Relief Centre,Kanyakumari,Nagercoil Kanyakumari District Collectorate,8.1833,77.4119,1500,1077
+152,Nagercoil Municipal Emergency Relief Centre,Kanyakumari,Nagercoil Municipal Office,8.1833,77.4119,1200,1077
+153,Government Higher Secondary School Nagercoil,Kanyakumari,Nagercoil Town,8.1830,77.4300,1000,1077
+154,Government Higher Secondary School Asaripallam,Kanyakumari,Asaripallam Nagercoil,8.1800,77.4100,900,1077
+155,Government Higher Secondary School Kuzhithurai,Kanyakumari,Kuzhithurai Kanyakumari District,8.3200,77.1800,900,1077
+156,Government Higher Secondary School Thuckalay,Kanyakumari,Thuckalay Kanyakumari District,8.2500,77.3300,900,1077
+157,Government Higher Secondary School Colachel,Kanyakumari,Colachel Kanyakumari District,8.1800,77.2600,800,1077
+158,Government Higher Secondary School Marthandam,Kanyakumari,Marthandam Kanyakumari District,8.3100,77.2200,900,1077
+159,Government Higher Secondary School Kanyakumari,Kanyakumari,Kanyakumari Town,8.0883,77.5385,800,1077
+160,Government Higher Secondary School Padmanabhapuram,Kanyakumari,Padmanabhapuram Kanyakumari District,8.2400,77.3300,800,1077
+161,Ramanathapuram District Relief Centre,Ramanathapuram,Ramanathapuram District Collectorate,9.3716,78.8308,1500,1077
+162,Ramanathapuram Municipal Emergency Relief Centre,Ramanathapuram,Ramanathapuram Municipality,9.3716,78.8308,1100,1077
+163,Government Higher Secondary School Ramanathapuram,Ramanathapuram,Ramanathapuram Town,9.3700,78.8300,900,1077
+164,Government Higher Secondary School Paramakudi,Ramanathapuram,Paramakudi Ramanathapuram District,9.5500,78.5900,1000,1077
+165,Government Higher Secondary School Rameswaram,Ramanathapuram,Rameswaram Ramanathapuram District,9.2880,79.3120,900,1077
+166,Government Higher Secondary School Mandapam,Ramanathapuram,Mandapam Ramanathapuram District,9.2800,79.1200,800,1077
+167,Government Higher Secondary School Keelakarai,Ramanathapuram,Keelakarai Ramanathapuram District,9.2300,78.7850,800,1077
+168,Government Higher Secondary School Kamuthi,Ramanathapuram,Kamuthi Ramanathapuram District,9.4100,78.3700,800,1077
+169,Government Higher Secondary School Mudukulathur,Ramanathapuram,Mudukulathur Ramanathapuram District,9.3400,78.5100,800,1077
+170,Government Higher Secondary School Thiruvadanai,Ramanathapuram,Thiruvadanai Ramanathapuram District,9.7800,78.9300,800,1077
+171,Pudukkottai District Relief Centre,Pudukkottai,Pudukkottai District Collectorate,10.3833,78.8001,1500,1077
+172,Pudukkottai Municipal Emergency Relief Centre,Pudukkottai,Pudukkottai Municipality,10.3833,78.8001,1100,1077
+173,Government Higher Secondary School Pudukkottai,Pudukkottai,Pudukkottai Town,10.3800,78.8200,900,1077
+174,Government Higher Secondary School Aranthangi,Pudukkottai,Aranthangi Pudukkottai District,10.1700,79.0000,1000,1077
+175,Government Higher Secondary School Alangudi,Pudukkottai,Alangudi Pudukkottai District,10.3600,78.9900,900,1077
+176,Government Higher Secondary School Keeranur,Pudukkottai,Keeranur Pudukkottai District,10.5700,78.7900,800,1077
+177,Government Higher Secondary School Illuppur,Pudukkottai,Illuppur Pudukkottai District,10.5100,78.6200,800,1077
+178,Government Higher Secondary School Viralimalai,Pudukkottai,Viralimalai Pudukkottai District,10.6100,78.5300,800,1077
+179,Government Higher Secondary School Manamelkudi,Pudukkottai,Manamelkudi Pudukkottai District,10.0000,79.8500,700,1077
+180,Government Higher Secondary School Avudaiyarkoil,Pudukkottai,Avudaiyarkoil Pudukkottai District,10.0700,79.0700,800,1077
+181,Cuddalore District Relief Centre,Cuddalore,Cuddalore District Collectorate,11.7480,79.7714,1500,1077
+182,Cuddalore Municipal Emergency Relief Centre,Cuddalore,Cuddalore Municipality,11.7480,79.7714,1100,1077
+183,Government Higher Secondary School Cuddalore,Cuddalore,Cuddalore Town,11.7500,79.7700,900,1077
+184,Government Higher Secondary School Chidambaram,Cuddalore,Chidambaram Cuddalore District,11.4000,79.6900,1000,1077
+185,Government Higher Secondary School Panruti,Cuddalore,Panruti Cuddalore District,11.7700,79.5500,900,1077
+186,Government Higher Secondary School Neyveli,Cuddalore,Neyveli Cuddalore District,11.6100,79.4900,1000,1077
+187,Government Higher Secondary School Virudhachalam,Cuddalore,Virudhachalam Cuddalore District,11.5200,79.3300,900,1077
+188,Government Higher Secondary School Tittakudi,Cuddalore,Tittakudi Cuddalore District,11.4000,79.0500,800,1077
+189,Government Higher Secondary School Bhuvanagiri,Cuddalore,Bhuvanagiri Cuddalore District,11.4500,79.6300,800,1077
+190,Government Higher Secondary School Kattumannarkoil,Cuddalore,Kattumannarkoil Cuddalore District,11.2700,79.5500,800,1077
+191,Ariyalur District Relief Centre,Ariyalur,Ariyalur District Collectorate,11.1401,79.0780,1500,1077
+192,Ariyalur Municipal Emergency Relief Centre,Ariyalur,Ariyalur Municipality,11.1401,79.0780,1100,1077
+193,Government Higher Secondary School Ariyalur,Ariyalur,Ariyalur Town,11.1400,79.0800,900,1077
+194,Government Higher Secondary School Jayankondam,Ariyalur,Jayankondam Ariyalur District,11.2100,79.3600,1000,1077
+195,Government Higher Secondary School Andimadam,Ariyalur,Andimadam Ariyalur District,11.2400,79.2500,800,1077
+196,Government Higher Secondary School Sendurai,Ariyalur,Sendurai Ariyalur District,11.2700,79.1800,800,1077
+197,Government Higher Secondary School Udayarpalayam,Ariyalur,Udayarpalayam Ariyalur District,11.2600,79.2900,800,1077
+198,Government Higher Secondary School T Palur,Ariyalur,T Palur Ariyalur District,11.2100,79.3200,700,1077
+199,Government Higher Secondary School Varadarajanpettai,Ariyalur,Varadarajanpettai Ariyalur District,11.3000,79.2300,700,1077
+200,Government Higher Secondary School Venganur,Ariyalur,Venganur Ariyalur District,11.1800,79.1800,700,1077
+201,Perambalur District Relief Centre,Perambalur,Perambalur District Collectorate,11.2333,78.8833,1500,1077
+202,Perambalur Municipal Emergency Relief Centre,Perambalur,Perambalur Municipality,11.2333,78.8833,1100,1077
+203,Government Higher Secondary School Perambalur,Perambalur,Perambalur Town,11.2350,78.8850,900,1077
+204,Government Higher Secondary School Kunnam,Perambalur,Kunnam Perambalur District,11.2200,78.8200,800,1077
+205,Government Higher Secondary School Veppanthattai,Perambalur,Veppanthattai Perambalur District,11.4000,78.8000,800,1077
+206,Government Higher Secondary School Veppur,Perambalur,Veppur Perambalur District,11.2500,78.8700,800,1077
+207,Government Higher Secondary School Arumbavur,Perambalur,Arumbavur Perambalur District,11.4500,78.7300,700,1077
+208,Government Higher Secondary School Labbaikudikadu,Perambalur,Labbaikudikadu Perambalur District,11.2800,78.8000,700,1077
+209,Government Higher Secondary School Kurumbalur,Perambalur,Kurumbalur Perambalur District,11.2800,78.8800,700,1077
+210,Government Higher Secondary School Alathur,Perambalur,Alathur Perambalur District,11.1000,78.8500,700,1077
+211,Dharmapuri District Relief Centre,Dharmapuri,Dharmapuri District Collectorate,12.1211,78.1582,1500,1077
+212,Dharmapuri Municipal Emergency Relief Centre,Dharmapuri,Dharmapuri Municipality,12.1211,78.1582,1100,1077
+213,Government Higher Secondary School Dharmapuri,Dharmapuri,Dharmapuri Town,12.1200,78.1600,900,1077
+214,Government Higher Secondary School Pennagaram,Dharmapuri,Pennagaram Dharmapuri District,12.1300,77.9000,900,1077
+215,Government Higher Secondary School Harur,Dharmapuri,Harur Dharmapuri District,12.0500,78.4800,900,1077
+216,Government Higher Secondary School Palacode,Dharmapuri,Palacode Dharmapuri District,12.3000,78.0700,800,1077
+217,Government Higher Secondary School Pappireddipatti,Dharmapuri,Pappireddipatti Dharmapuri District,11.9200,78.3700,800,1077
+218,Government Higher Secondary School Karimangalam,Dharmapuri,Karimangalam Dharmapuri District,12.3100,78.2000,800,1077
+219,Government Higher Secondary School Nallampalli,Dharmapuri,Nallampalli Dharmapuri District,12.1000,78.1000,700,1077
+220,Government Higher Secondary School Morappur,Dharmapuri,Morappur Dharmapuri District,12.0800,78.4700,700,1077
+221,Krishnagiri District Relief Centre,Krishnagiri,Krishnagiri District Collectorate,12.5186,78.2137,1500,1077
+222,Krishnagiri Municipal Emergency Relief Centre,Krishnagiri,Krishnagiri Municipality,12.5186,78.2137,1100,1077
+223,Government Higher Secondary School Krishnagiri,Krishnagiri,Krishnagiri Town,12.5200,78.2150,900,1077
+224,Government Higher Secondary School Hosur,Krishnagiri,Hosur Krishnagiri District,12.7400,77.8250,1200,1077
+225,Government Higher Secondary School Denkanikottai,Krishnagiri,Denkanikottai Krishnagiri District,12.5300,77.7900,800,1077
+226,Government Higher Secondary School Bargur,Krishnagiri,Bargur Krishnagiri District,12.5500,78.3500,800,1077
+227,Government Higher Secondary School Uthangarai,Krishnagiri,Uthangarai Krishnagiri District,12.2600,78.5300,900,1077
+228,Government Higher Secondary School Pochampalli,Krishnagiri,Pochampalli Krishnagiri District,12.3500,78.2600,800,1077
+229,Government Higher Secondary School Kaveripattinam,Krishnagiri,Kaveripattinam Krishnagiri District,12.4200,78.2200,800,1077
+230,Government Higher Secondary School Shoolagiri,Krishnagiri,Shoolagiri Krishnagiri District,12.6700,78.0000,800,1077
+231,Vellore District Relief Centre,Vellore,Vellore District Collectorate,12.9165,79.1325,1500,1077
+232,Vellore Municipal Emergency Relief Centre,Vellore,Vellore Municipal Corporation Office,12.9165,79.1325,1200,1077
+233,Government Higher Secondary School Vellore,Vellore,Vellore Town,12.9200,79.1300,1000,1077
+234,Government Higher Secondary School Katpadi,Vellore,Katpadi Vellore District,12.9700,79.1500,1000,1077
+235,Government Higher Secondary School Sathuvachari,Vellore,Sathuvachari Vellore,12.9300,79.1450,900,1077
+236,Government Higher Secondary School Gudiyatham,Vellore,Gudiyatham Vellore District,12.9500,78.8700,1000,1077
+237,Government Higher Secondary School Pernambut,Vellore,Pernambut Vellore District,12.9300,78.7200,800,1077
+238,Government Higher Secondary School Anaicut,Vellore,Anaicut Vellore District,12.8000,79.0500,800,1077
+239,Government Higher Secondary School K V Kuppam,Vellore,K V Kuppam Vellore District,12.6000,78.7000,800,1077
+240,Government Higher Secondary School Kaniyambadi,Vellore,Kaniyambadi Vellore District,12.8500,79.0500,800,1077
+241,Ranipet District Relief Centre,Ranipet,Ranipet District Collectorate,12.9300,79.3300,1500,1077
+242,Ranipet Municipal Emergency Relief Centre,Ranipet,Ranipet Municipality,12.9300,79.3300,1100,1077
+243,Government Higher Secondary School Ranipet,Ranipet,Ranipet Town,12.9300,79.3300,900,1077
+244,Government Higher Secondary School Arcot,Ranipet,Arcot Ranipet District,12.9050,79.3200,1000,1077
+245,Government Higher Secondary School Walajapet,Ranipet,Walajapet Ranipet District,12.9250,79.3700,900,1077
+246,Government Higher Secondary School Arakkonam,Ranipet,Arakkonam Ranipet District,13.0800,79.6700,1100,1077
+247,Government Higher Secondary School Sholinghur,Ranipet,Sholinghur Ranipet District,13.1200,79.4200,900,1077
+248,Government Higher Secondary School Nemili,Ranipet,Nemili Ranipet District,12.9500,79.6000,800,1077
+249,Government Higher Secondary School Kalavai,Ranipet,Kalavai Ranipet District,12.7700,79.4200,700,1077
+250,Government Higher Secondary School Timiri,Ranipet,Timiri Ranipet District,12.7800,79.3800,700,1077
+251,Tirupathur District Relief Centre,Tirupathur,Tirupathur District Collectorate,12.5000,78.5700,1500,1077
+252,Tirupathur Municipal Emergency Relief Centre,Tirupathur,Tirupathur Municipality,12.5000,78.5700,1100,1077
+253,Government Higher Secondary School Tirupathur,Tirupathur,Tirupathur Town,12.5000,78.5700,900,1077
+254,Government Higher Secondary School Vaniyambadi,Tirupathur,Vaniyambadi Tirupathur District,12.6800,78.6200,1000,1077
+255,Government Higher Secondary School Ambur,Tirupathur,Ambur Tirupathur District,12.7900,78.7200,1100,1077
+256,Government Higher Secondary School Natrampalli,Tirupathur,Natrampalli Tirupathur District,12.5800,78.5200,800,1077
+257,Government Higher Secondary School Kandili,Tirupathur,Kandili Tirupathur District,12.5500,78.6000,800,1077
+258,Government Higher Secondary School Jolarpet,Tirupathur,Jolarpet Tirupathur District,12.5700,78.5800,900,1077
+259,Government Higher Secondary School Alangayam,Tirupathur,Alangayam Tirupathur District,12.6200,78.7500,800,1077
+260,Government Higher Secondary School Madhanur,Tirupathur,Madhanur Tirupathur District,12.8200,78.7300,800,1077
+261,Tiruvannamalai District Relief Centre,Tiruvannamalai,Tiruvannamalai District Collectorate,12.2253,79.0747,1500,1077
+262,Tiruvannamalai Municipal Emergency Relief Centre,Tiruvannamalai,Tiruvannamalai Municipality,12.2253,79.0747,1100,1077
+263,Government Higher Secondary School Tiruvannamalai,Tiruvannamalai,Tiruvannamalai Town,12.2250,79.0750,1000,1077
+264,Government Higher Secondary School Arani,Tiruvannamalai,Arani Tiruvannamalai District,12.6700,79.2900,1000,1077
+265,Government Higher Secondary School Polur,Tiruvannamalai,Polur Tiruvannamalai District,12.5100,79.1200,900,1077
+266,Government Higher Secondary School Chengam,Tiruvannamalai,Chengam Tiruvannamalai District,12.3100,78.7900,900,1077
+267,Government Higher Secondary School Vandavasi,Tiruvannamalai,Vandavasi Tiruvannamalai District,12.5000,79.6100,900,1077
+268,Government Higher Secondary School Cheyyar,Tiruvannamalai,Cheyyar Tiruvannamalai District,12.6600,79.5400,900,1077
+269,Government Higher Secondary School Kalasapakkam,Tiruvannamalai,Kalasapakkam Tiruvannamalai District,12.5200,79.2000,800,1077
+270,Government Higher Secondary School Jawadhu Hills,Tiruvannamalai,Jawadhu Hills Tiruvannamalai District,12.5700,78.8800,700,1077
+271,Chengalpattu District Relief Centre,Chengalpattu,Chengalpattu District Collectorate,12.6819,79.9888,1500,1077
+272,Chengalpattu Municipal Emergency Relief Centre,Chengalpattu,Chengalpattu Municipality,12.6819,79.9888,1100,1077
+273,Government Higher Secondary School Chengalpattu,Chengalpattu,Chengalpattu Town,12.6900,79.9800,1000,1077
+274,Government Higher Secondary School Tambaram,Chengalpattu,Tambaram Chengalpattu District,12.9249,80.1000,1200,1077
+275,Government Higher Secondary School Pallavaram,Chengalpattu,Pallavaram Chengalpattu District,12.9675,80.1490,1000,1077
+276,Government Higher Secondary School Madurantakam,Chengalpattu,Madurantakam Chengalpattu District,12.5100,79.8800,900,1077
+277,Government Higher Secondary School Maraimalai Nagar,Chengalpattu,Maraimalai Nagar Chengalpattu District,12.7900,80.0200,1000,1077
+278,Government Higher Secondary School Kelambakkam,Chengalpattu,Kelambakkam Chengalpattu District,12.7900,80.2200,900,1077
+279,Government Higher Secondary School Madhurantakam East,Chengalpattu,Madhurantakam Chengalpattu District,12.5200,79.8800,800,1077
+280,Government Higher Secondary School Thiruporur,Chengalpattu,Thiruporur Chengalpattu District,12.7300,80.1900,800,1077
+281,Kancheepuram District Relief Centre,Kancheepuram,Kancheepuram District Collectorate,12.8342,79.7036,1500,1077
+282,Kancheepuram Municipal Emergency Relief Centre,Kancheepuram,Kancheepuram Municipality,12.8342,79.7036,1100,1077
+283,Government Higher Secondary School Kancheepuram,Kancheepuram,Kancheepuram Town,12.8350,79.7050,1000,1077
+284,Government Higher Secondary School Sriperumbudur,Kancheepuram,Sriperumbudur Kancheepuram District,12.9700,79.9500,1100,1077
+285,Government Higher Secondary School Walajabad,Kancheepuram,Walajabad Kancheepuram District,12.7900,79.8200,800,1077
+286,Government Higher Secondary School Kundrathur,Kancheepuram,Kundrathur Kancheepuram District,12.9950,80.0950,1000,1077
+287,Government Higher Secondary School Uthiramerur,Kancheepuram,Uthiramerur Kancheepuram District,12.6100,79.7600,800,1077
+288,Government Higher Secondary School Sunguvarchatram,Kancheepuram,Sunguvarchatram Kancheepuram District,12.9000,79.9500,800,1077
+289,Government Higher Secondary School Oragadam,Kancheepuram,Oragadam Kancheepuram District,12.8500,80.0000,900,1077
+290,Government Higher Secondary School Padappai,Kancheepuram,Padappai Kancheepuram District,12.8800,80.0300,800,1077
+291,Tiruvallur District Relief Centre,Tiruvallur,Tiruvallur District Collectorate,13.1430,79.9070,1500,1077
+292,Tiruvallur Municipal Emergency Relief Centre,Tiruvallur,Tiruvallur Municipality,13.1430,79.9070,1100,1077
+293,Government Higher Secondary School Tiruvallur,Tiruvallur,Tiruvallur Town,13.1400,79.9100,1000,1077
+294,Government Higher Secondary School Avadi,Tiruvallur,Avadi Tiruvallur District,13.1147,80.1098,1200,1077
+295,Government Higher Secondary School Ambattur,Tiruvallur,Ambattur Tiruvallur District,13.1143,80.1548,1200,1077
+296,Government Higher Secondary School Tiruttani,Tiruvallur,Tiruttani Tiruvallur District,13.1750,79.6200,1000,1077
+297,Government Higher Secondary School Ponneri,Tiruvallur,Ponneri Tiruvallur District,13.3380,80.1940,900,1077
+298,Government Higher Secondary School Gummidipoondi,Tiruvallur,Gummidipoondi Tiruvallur District,13.4100,80.1100,900,1077
+299,Government Higher Secondary School Uthukkottai,Tiruvallur,Uthukkottai Tiruvallur District,13.3900,79.7600,800,1077
+300,Government Higher Secondary School Pallipattu,Tiruvallur,Pallipattu Tiruvallur District,13.3400,79.4500,800,1077
+301,Villupuram District Relief Centre,Villupuram,Villupuram District Collectorate,11.9401,79.4861,1500,1077
+302,Villupuram Municipal Emergency Relief Centre,Villupuram,Villupuram Municipality,11.9401,79.4861,1100,1077
+303,Government Higher Secondary School Villupuram,Villupuram,Villupuram Town,11.9400,79.4900,1000,1077
+304,Government Higher Secondary School Tindivanam,Villupuram,Tindivanam Villupuram District,12.2300,79.6500,1000,1077
+305,Government Higher Secondary School Gingee,Villupuram,Gingee Villupuram District,12.2500,79.4200,900,1077
+306,Government Higher Secondary School Kallakurichi Border,Villupuram,Kallakurichi Border Villupuram District,11.9000,79.3000,800,1077
+307,Government Higher Secondary School Vanur,Villupuram,Vanur Villupuram District,12.0000,79.7300,800,1077
+308,Government Higher Secondary School Vikravandi,Villupuram,Vikravandi Villupuram District,12.0300,79.5500,800,1077
+309,Government Higher Secondary School Kandamangalam,Villupuram,Kandamangalam Villupuram District,11.9200,79.6500,800,1077
+310,Government Higher Secondary School Marakkanam,Villupuram,Marakkanam Villupuram District,12.1900,79.9500,800,1077
+311,Kallakurichi District Relief Centre,Kallakurichi,Kallakurichi District Collectorate,11.7380,78.9639,1500,1077
+312,Kallakurichi Municipal Emergency Relief Centre,Kallakurichi,Kallakurichi Municipality,11.7380,78.9639,1100,1077
+313,Government Higher Secondary School Kallakurichi,Kallakurichi,Kallakurichi Town,11.7400,78.9650,1000,1077
+314,Government Higher Secondary School Chinnasalem,Kallakurichi,Chinnasalem Kallakurichi District,11.5800,78.8700,900,1077
+315,Government Higher Secondary School Sankarapuram,Kallakurichi,Sankarapuram Kallakurichi District,11.8900,78.9200,900,1077
+316,Government Higher Secondary School Ulundurpet,Kallakurichi,Ulundurpet Kallakurichi District,11.7000,79.2900,900,1077
+317,Government Higher Secondary School Tirukoilur,Kallakurichi,Tirukoilur Kallakurichi District,11.9700,79.2000,1000,1077
+318,Government Higher Secondary School Kalvarayan Hills,Kallakurichi,Kalvarayan Hills Kallakurichi District,11.8000,78.7000,700,1077
+319,Government Higher Secondary School Thiyagadurgam,Kallakurichi,Thiyagadurgam Kallakurichi District,11.6900,79.0200,800,1077
+320,Government Higher Secondary School Rishivandiyam,Kallakurichi,Rishivandiyam Kallakurichi District,11.8900,79.0200,800,1077
+321,Theni District Relief Centre,Theni,Theni District Collectorate,10.0104,77.4768,1500,1077
+322,Theni Municipal Emergency Relief Centre,Theni,Theni Municipality,10.0104,77.4768,1100,1077
+323,Government Higher Secondary School Theni,Theni,Theni Town,10.0100,77.4800,1000,1077
+324,Government Higher Secondary School Periyakulam,Theni,Periyakulam Theni District,10.1200,77.5500,1000,1077
+325,Government Higher Secondary School Bodinayakanur,Theni,Bodinayakanur Theni District,10.0100,77.3500,1000,1077
+326,Government Higher Secondary School Cumbum,Theni,Cumbum Theni District,9.7400,77.2800,900,1077
+327,Government Higher Secondary School Uthamapalayam,Theni,Uthamapalayam Theni District,9.8000,77.3300,900,1077
+328,Government Higher Secondary School Chinnamanur,Theni,Chinnamanur Theni District,9.8400,77.3800,900,1077
+329,Government Higher Secondary School Andipatti,Theni,Andipatti Theni District,9.9900,77.6200,800,1077
+330,Government Higher Secondary School Kadamalaikundu,Theni,Kadamalaikundu Theni District,9.7200,77.5200,700,1077
+331,Tenkasi District Relief Centre,Tenkasi,Tenkasi District Collectorate,8.9590,77.3152,1500,1077
+332,Tenkasi Municipal Emergency Relief Centre,Tenkasi,Tenkasi Municipality,8.9590,77.3152,1100,1077
+333,Government Higher Secondary School Tenkasi,Tenkasi,Tenkasi Town,8.9600,77.3150,1000,1077
+334,Government Higher Secondary School Sankarankovil,Tenkasi,Sankarankovil Tenkasi District,9.1700,77.5400,1000,1077
+335,Government Higher Secondary School Kadayanallur,Tenkasi,Kadayanallur Tenkasi District,9.0800,77.3500,900,1077
+336,Government Higher Secondary School Shenkottai,Tenkasi,Shenkottai Tenkasi District,8.9800,77.2500,900,1077
+337,Government Higher Secondary School Alangulam,Tenkasi,Alangulam Tenkasi District,8.8600,77.5000,900,1077
+338,Government Higher Secondary School Surandai,Tenkasi,Surandai Tenkasi District,8.9800,77.4200,800,1077
+339,Government Higher Secondary School Vasudevanallur,Tenkasi,Vasudevanallur Tenkasi District,9.2300,77.4100,800,1077
+340,Government Higher Secondary School Rajapalayam Border,Tenkasi,Tenkasi District,9.1000,77.4300,700,1077
+341,Tiruvarur District Relief Centre,Tiruvarur,Tiruvarur District Collectorate,10.7725,79.6368,1500,1077
+342,Tiruvarur Municipal Emergency Relief Centre,Tiruvarur,Tiruvarur Municipality,10.7725,79.6368,1100,1077
+343,Government Higher Secondary School Tiruvarur,Tiruvarur,Tiruvarur Town,10.7700,79.6400,1000,1077
+344,Government Higher Secondary School Mannargudi,Tiruvarur,Mannargudi Tiruvarur District,10.6700,79.4400,1100,1077
+345,Government Higher Secondary School Thiruthuraipoondi,Tiruvarur,Thiruthuraipoondi Tiruvarur District,10.5300,79.6400,900,1077
+346,Government Higher Secondary School Needamangalam,Tiruvarur,Needamangalam Tiruvarur District,10.7700,79.4200,800,1077
+347,Government Higher Secondary School Nannilam,Tiruvarur,Nannilam Tiruvarur District,10.8800,79.6200,800,1077
+348,Government Higher Secondary School Kodavasal,Tiruvarur,Kodavasal Tiruvarur District,10.9200,79.4800,800,1077
+349,Government Higher Secondary School Valangaiman,Tiruvarur,Valangaiman Tiruvarur District,10.8900,79.3900,800,1077
+350,Government Higher Secondary School Muthupet,Tiruvarur,Muthupet Tiruvarur District,10.4800,79.5200,800,1077
+351,Nagapattinam District Relief Centre,Nagapattinam,Nagapattinam District Collectorate,10.7656,79.8424,1500,1077
+352,Nagapattinam Municipal Emergency Relief Centre,Nagapattinam,Nagapattinam Municipality,10.7656,79.8424,1100,1077
+353,Government Higher Secondary School Nagapattinam,Nagapattinam,Nagapattinam Town,10.7700,79.8400,1000,1077
+354,Government Higher Secondary School Velankanni,Nagapattinam,Velankanni Nagapattinam District,10.6800,79.8400,1000,1077
+355,Government Higher Secondary School Vedaranyam,Nagapattinam,Vedaranyam Nagapattinam District,10.3700,79.8500,900,1077
+356,Government Higher Secondary School Kilvelur,Nagapattinam,Kilvelur Nagapattinam District,10.7600,79.7400,800,1077
+357,Government Higher Secondary School Thirukkuvalai,Nagapattinam,Thirukkuvalai Nagapattinam District,10.6200,79.5500,800,1077
+358,Government Higher Secondary School Sirkazhi Road,Nagapattinam,Sirkazhi Road Nagapattinam District,10.8500,79.7800,800,1077
+359,Government Higher Secondary School Vellankanni East,Nagapattinam,Velankanni Nagapattinam District,10.6750,79.8500,700,1077
+360,Government Higher Secondary School Thalainayar,Nagapattinam,Thalainayar Nagapattinam District,10.7100,79.7200,700,1077
+361,Mayiladuthurai District Relief Centre,Mayiladuthurai,Mayiladuthurai District Collectorate,11.1018,79.6528,1500,1077
+362,Mayiladuthurai Municipal Emergency Relief Centre,Mayiladuthurai,Mayiladuthurai Municipality,11.1018,79.6528,1100,1077
+363,Government Higher Secondary School Mayiladuthurai,Mayiladuthurai,Mayiladuthurai Town,11.1000,79.6500,1000,1077
+364,Government Higher Secondary School Sirkali,Mayiladuthurai,Sirkali Mayiladuthurai District,11.2400,79.7300,1000,1077
+365,Government Higher Secondary School Kuthalam,Mayiladuthurai,Kuthalam Mayiladuthurai District,11.0700,79.5500,800,1077
+366,Government Higher Secondary School Poompuhar,Mayiladuthurai,Poompuhar Mayiladuthurai District,11.1500,79.8500,800,1077
+367,Government Higher Secondary School Kollidam,Mayiladuthurai,Kollidam Mayiladuthurai District,11.3300,79.7200,800,1077
+368,Government Higher Secondary School Tharangambadi,Mayiladuthurai,Tharangambadi Mayiladuthurai District,11.0300,79.8500,800,1077
+369,Government Higher Secondary School Kuttalam,Mayiladuthurai,Kuttalam Mayiladuthurai District,11.0700,79.5500,700,1077
+370,Government Higher Secondary School Vaitheeswarankoil,Mayiladuthurai,Vaitheeswarankoil Mayiladuthurai District,11.2300,79.7300,700,1077
+371,The Nilgiris District Relief Centre,The Nilgiris,Udhagamandalam Ooty District Collectorate,11.4102,76.6950,1200,1077
+372,Udhagamandalam Municipal Emergency Relief Centre,The Nilgiris,Udhagamandalam Ooty,11.4102,76.6950,1000,1077
+373,Government Higher Secondary School Ooty,The Nilgiris,Udhagamandalam Ooty,11.4100,76.7000,900,1077
+374,Government Higher Secondary School Coonoor,The Nilgiris,Coonoor The Nilgiris District,11.3500,76.8000,900,1077
+375,Government Higher Secondary School Gudalur,The Nilgiris,Gudalur The Nilgiris District,11.5000,76.4900,900,1077
+376,Government Higher Secondary School Kotagiri,The Nilgiris,Kotagiri The Nilgiris District,11.4200,76.8600,800,1077
+377,Government Higher Secondary School Lovedale,The Nilgiris,Lovedale The Nilgiris District,11.3800,76.7500,700,1077
+378,Government Higher Secondary School Wellington,The Nilgiris,Wellington The Nilgiris District,11.3600,76.7900,700,1077
+379,Government Higher Secondary School Pandalur,The Nilgiris,Pandalur The Nilgiris District,11.4800,76.6300,800,1077
+380,Government Higher Secondary School Devala,The Nilgiris,Devala The Nilgiris District,11.5200,76.5500,700,1077
