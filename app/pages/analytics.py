@@ -1,9 +1,15 @@
 import pandas as pd
 import streamlit as st
 
+from app.components.cards import apply_custom_styles, render_admin_banner
 from backend.database.connection import get_connection
 
-st.title("📈 Analytics")
+apply_custom_styles()
+
+render_admin_banner(
+    title="Disaster Response & Resource Analytics",
+    subtitle="Statewide resource capacity analysis, district shelter occupancy trends, and hospital distribution metrics.",
+)
 
 def load_shelter_data():
     """Return shelter capacity and occupancy data from the existing database."""

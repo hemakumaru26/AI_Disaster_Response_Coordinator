@@ -1,0 +1,199 @@
+{
+  "summary": {
+    "total_scenarios": 15,
+    "rag_hit_rate": 100.0,
+    "volunteer_match_rate": 71.43,
+    "shelter_safety_rate": 100.0,
+    "reflection_gap_resolution_rate": 50.0,
+    "hitl_enforcement_rate": 100.0,
+    "average_latency_ms": 686.4
+  },
+  "comparison_with_baseline": {
+    "agentic_volunteer_skill_match": 71.43,
+    "baseline_volunteer_skill_match": 36.67,
+    "agentic_shelter_violations": 0,
+    "baseline_shelter_violations": 2
+  },
+  "scenarios": [
+    {
+      "scenario": "SCENARIO_01",
+      "name": "Velachery Urban Flash Flood",
+      "type": "Flood",
+      "expected_priority": "HIGH",
+      "predicted_priority": "HIGH",
+      "volunteer_match": "2/2",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 9591.1
+    },
+    {
+      "scenario": "SCENARIO_02",
+      "name": "Adyar River Basin Overflow",
+      "type": "Flood",
+      "expected_priority": "HIGH",
+      "predicted_priority": "MEDIUM",
+      "volunteer_match": "1/2",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 57.6
+    },
+    {
+      "scenario": "SCENARIO_03",
+      "name": "Kolathur Residential Inundation",
+      "type": "Flood",
+      "expected_priority": "MEDIUM",
+      "predicted_priority": "MEDIUM",
+      "volunteer_match": "0/1",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 35.6
+    },
+    {
+      "scenario": "SCENARIO_04",
+      "name": "Madipakkam Street Flooding",
+      "type": "Flood",
+      "expected_priority": "HIGH",
+      "predicted_priority": "HIGH",
+      "volunteer_match": "2/2",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 39.3
+    },
+    {
+      "scenario": "SCENARIO_05",
+      "name": "Tambaram Lowland Submersion (Gap Scenario)",
+      "type": "Flood",
+      "expected_priority": "HIGH",
+      "predicted_priority": "MEDIUM",
+      "volunteer_match": "0/1",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "Resolved",
+      "latency_ms": 31.3
+    },
+    {
+      "scenario": "SCENARIO_06",
+      "name": "Coastal Cyclone Landfall High Winds",
+      "type": "Cyclone",
+      "expected_priority": "CRITICAL",
+      "predicted_priority": "HIGH",
+      "volunteer_match": "2/2",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 65.0
+    },
+    {
+      "scenario": "SCENARIO_07",
+      "name": "North Chennai Arterial Road Blockade",
+      "type": "Cyclone",
+      "expected_priority": "MEDIUM",
+      "predicted_priority": "MEDIUM",
+      "volunteer_match": "1/1",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 54.2
+    },
+    {
+      "scenario": "SCENARIO_08",
+      "name": "Ennore Coastal Storm Surge",
+      "type": "Cyclone",
+      "expected_priority": "HIGH",
+      "predicted_priority": "HIGH",
+      "volunteer_match": "2/2",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 52.1
+    },
+    {
+      "scenario": "SCENARIO_09",
+      "name": "Marina Beach Fishermen Colony Evacuation",
+      "type": "Cyclone",
+      "expected_priority": "HIGH",
+      "predicted_priority": "HIGH",
+      "volunteer_match": "0/1",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 54.3
+    },
+    {
+      "scenario": "SCENARIO_10",
+      "name": "Royapuram Wind Damage (Gap Scenario)",
+      "type": "Cyclone",
+      "expected_priority": "HIGH",
+      "predicted_priority": "HIGH",
+      "volunteer_match": "0/1",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "Unchanged",
+      "latency_ms": 53.8
+    },
+    {
+      "scenario": "SCENARIO_11",
+      "name": "Perambur Commercial Building Collapse",
+      "type": "Building Collapse",
+      "expected_priority": "CRITICAL",
+      "predicted_priority": "HIGH",
+      "volunteer_match": "2/2",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 54.2
+    },
+    {
+      "scenario": "SCENARIO_12",
+      "name": "T. Nagar Market Fire Outbreak",
+      "type": "Fire",
+      "expected_priority": "HIGH",
+      "predicted_priority": "MEDIUM",
+      "volunteer_match": "1/1",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 100.9
+    },
+    {
+      "scenario": "SCENARIO_13",
+      "name": "Guindy Industrial Warehouse Structural Failure",
+      "type": "Building Collapse",
+      "expected_priority": "HIGH",
+      "predicted_priority": "MEDIUM",
+      "volunteer_match": "2/2",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 47.1
+    },
+    {
+      "scenario": "SCENARIO_14",
+      "name": "Mega Disaster Shelter Overbooking (Edge Case)",
+      "type": "Flood",
+      "expected_priority": "CRITICAL",
+      "predicted_priority": "HIGH",
+      "volunteer_match": "0/1",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 35.6
+    },
+    {
+      "scenario": "SCENARIO_15",
+      "name": "Minor Basement Water Seepage (Edge Case)",
+      "type": "Flood",
+      "expected_priority": "LOW",
+      "predicted_priority": "LOW",
+      "volunteer_match": "N/A",
+      "shelter_safe": "Yes",
+      "rag_hit": "Yes",
+      "replan": "N/A",
+      "latency_ms": 23.8
+    }
+  ]
+}

@@ -1,15 +1,31 @@
+import os
 import sqlite3
 from pathlib import Path
 
 # Project root directory
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+OVERRIDE_FILE = BASE_DIR / "scratch" / "db_override.txt"
 
-# Path to database/disaster.db
-DATABASE_PATH = BASE_DIR / "database" / "disaster.db"
+
+DEFAULT_DB = BASE_DIR / "database" / "disaster.db"
+DATABASE_PATH = DEFAULT_DB
+
+
+def get_database_path():
+    if OVERRIDE_FILE.exists():
+        try:
+            target = OVERRIDE_FILE.read_text(encoding="utf-8").strip()
+            if target and Path(target).exists():
+                return Path(target)
+        except Exception:
+            pass
+    if str(DATABASE_PATH) != str(DEFAULT_DB):
+        return Path(DATABASE_PATH)
+    return DEFAULT_DB
 
 
 def get_connection():
-    conn = sqlite3.connect(DATABASE_PATH)
+    conn = sqlite3.connect(get_database_path())
     conn.row_factory = sqlite3.Row
     return conn
 

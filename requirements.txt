@@ -15,3 +15,4 @@ sqlalchemy
 pandas
 folium
 streamlit-folium
+resend

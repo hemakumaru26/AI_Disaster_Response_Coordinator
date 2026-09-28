@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI
 
 from backend.api.emergency import router as emergency_router
@@ -5,6 +8,18 @@ from backend.database.connection import create_tables
 
 # Create database tables automatically
 create_tables()
+
+
+def _warmup():
+    try:
+        from rag.retriever import _embedding_model
+        _embedding_model()
+    except Exception:
+        pass
+
+
+import threading
+threading.Thread(target=_warmup, daemon=True).start()
 
 app = FastAPI(
     title="AI Disaster Response Coordinator",

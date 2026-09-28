@@ -1,0 +1,264 @@
+/* ==========================================================================
+   AI Disaster Response Coordinator - Modern Theme & Role Styling
+   ========================================================================== */
+
+:root {
+  --primary-red: #D32F2F;
+  --dark-red: #B71C1C;
+  --light-red: #FFEBEE;
+  --accent-amber: #F57C00;
+  --light-amber: #FFF3E0;
+  --success-green: #2E7D32;
+  --light-green: #E8F5E9;
+  --info-blue: #1976D2;
+  --light-blue: #E3F2FD;
+  --neutral-dark: #263238;
+  --neutral-gray: #546E7A;
+  --neutral-light: #F8F9FA;
+  --card-bg: #FFFFFF;
+  --border-color: #E0E0E0;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+/* --- Container & General Styling --- */
+.main .block-container {
+  padding-top: 1.8rem;
+  padding-bottom: 2.5rem;
+  max-width: 1280px;
+}
+
+/* --- Emergency Header Banner --- */
+.emergency-banner {
+  background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 100%);
+  color: #FFFFFF !important;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.emergency-banner h1, .emergency-banner h2, .emergency-banner h3 {
+  color: #FFFFFF !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Admin Header Banner --- */
+.admin-banner {
+  background: linear-gradient(135deg, #1A237E 0%, #0D47A1 100%);
+  color: #FFFFFF !important;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.admin-banner h1, .admin-banner h2, .admin-banner h3, .admin-banner p {
+  color: #FFFFFF !important;
+  margin: 0;
+}
+
+/* --- Card Components --- */
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card.critical {
+  border-left: 5px solid var(--primary-red);
+}
+
+.stat-card.warning {
+  border-left: 5px solid var(--accent-amber);
+}
+
+.stat-card.active {
+  border-left: 5px solid var(--success-green);
+}
+
+.stat-card.info {
+  border-left: 5px solid var(--info-blue);
+}
+
+/* --- Operational Response Card (User Facing) --- */
+.response-card {
+  background: #FFFFFF;
+  border: 1px solid #CFD8DC;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-lg);
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.response-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ECEFF1;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* --- Status Badges --- */
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.badge-pending {
+  background-color: #FFF3E0;
+  color: #E65100;
+  border: 1px solid #FFE0B2;
+}
+
+.badge-active {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+  border: 1px solid #C8E6C9;
+}
+
+.badge-completed {
+  background-color: #E0F2F1;
+  color: #00695C;
+  border: 1px solid #B2DFDB;
+}
+
+.badge-replanning {
+  background-color: #EDE7F6;
+  color: #512DA8;
+  border: 1px solid #D1C4E9;
+}
+
+.badge-critical {
+  background-color: #FFEBEE;
+  color: #C62828;
+  border: 1px solid #FFCDD2;
+}
+
+.badge-high {
+  background-color: #FBE9E7;
+  color: #D84315;
+  border: 1px solid #FFCCBC;
+}
+
+.badge-medium {
+  background-color: #FFF8E1;
+  color: #F57F17;
+  border: 1px solid #FFECB3;
+}
+
+.badge-low {
+  background-color: #F1F8E9;
+  color: #558B2F;
+  border: 1px solid #DCEDC8;
+}
+
+/* --- Operational Highlights Grid --- */
+.operational-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.grid-item {
+  background: #F8F9FA;
+  border: 1px solid #E9ECEF;
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.1rem;
+}
+
+.grid-item-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--neutral-gray);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.grid-item-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--neutral-dark);
+}
+
+/* --- Citizen Safety Notice Box --- */
+.safety-notice {
+  background: #E3F2FD;
+  border-left: 4px solid #1976D2;
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 1.25rem 0;
+  color: #0D47A1;
+}
+
+.safety-notice h4 {
+  color: #0D47A1;
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+/* --- Admin Model Attribution Pill --- */
+.model-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.model-pill.ollama {
+  background: #EDE7F6;
+  color: #4527A0;
+  border: 1px solid #D1C4E9;
+}
+
+.model-pill.fallback {
+  background: #FFF3E0;
+  color: #BF360C;
+  border: 1px solid #FFCCBC;
+}
+
+/* --- Helpline Quick-Dial Cards --- */
+.helpline-box {
+  background: #FFFFFF;
+  border: 2px dashed #EF9A9A;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.helpline-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-red);
+  letter-spacing: 1px;
+}
+

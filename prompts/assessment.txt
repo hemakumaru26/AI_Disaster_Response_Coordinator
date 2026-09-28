@@ -66,9 +66,16 @@ Earthquake
 - Rescue Team
 - Medical Team
 
+Building Collapse
+- Excavator
+- Rescue Team
+- Ambulance
+- Medical Team
+
 Fire
 - Fire Truck
 - Ambulance
+- Rescue Team
 
 Cyclone
 - Boat
