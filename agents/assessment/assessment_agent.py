@@ -1,6 +1,7 @@
 import json
 import logging
 import re
+import time
 from pathlib import Path
 
 from backend.services.llm_service import get_llm
@@ -11,8 +12,8 @@ logger = logging.getLogger(__name__)
 
 class AssessmentAgent:
 
-    def __init__(self):
-        self.llm = get_llm()
+    def __init__(self, llm=None):
+        self.llm = llm if llm is not None else get_llm()
 
         prompt_path = (
             Path(__file__).resolve()
@@ -23,6 +24,14 @@ class AssessmentAgent:
 
         with open(prompt_path, "r", encoding="utf-8") as file:
             self.prompt_template = file.read()
+
+    @property
+    def llm_service(self):
+        return self.llm
+
+    @llm_service.setter
+    def llm_service(self, val):
+        self.llm = val
 
     @staticmethod
     def _deterministic_fallback(incident):
@@ -84,6 +93,7 @@ class AssessmentAgent:
                 f"Automated assessment for {disaster_name} at {location_name} "
                 f"(deterministic severity score: {severity_score})."
             ),
+            "source": "Deterministic Fallback",
         }
 
     def assess(self, incident):
@@ -91,29 +101,46 @@ class AssessmentAgent:
         Analyze an emergency incident using the local LLM with bounded timeout,
         falling back to deterministic domain assessment if LLM is slow or unavailable.
         """
+        inc_id = getattr(incident, "id", None) or "NEW"
+        disaster_type = getattr(incident, "disaster_type", "Emergency")
+        location = getattr(incident, "location", "Tamil Nadu")
+        people = getattr(incident, "people_affected", 0)
+
+        logger.info(
+            "Assessment started | incident_id=%s | disaster=%s | location=%s | people=%s",
+            inc_id, disaster_type, location, people
+        )
 
         prompt = self.prompt_template.format(
             reporter=getattr(incident, "reporter_name", ""),
-            disaster=getattr(incident, "disaster_type", ""),
-            location=getattr(incident, "location", ""),
-            people=getattr(incident, "people_affected", 0),
+            disaster=disaster_type,
+            location=location,
+            people=people,
             description=getattr(incident, "description", ""),
         )
 
+        start_t = time.time()
         try:
+            logger.info("Ollama attempted | model=qwen2.5:7b | incident_id=%s", inc_id)
             response = self.llm.invoke(prompt)
 
-            # LangChain returns AIMessage
+            # Handle AIMessage or string
             if hasattr(response, "content"):
                 response = response.content
 
-            # Extract JSON even if the model adds extra text
-            match = re.search(r"\{.*\}", str(response), re.DOTALL)
-            if not match:
-                raise ValueError("No JSON found in LLM response")
+            # Extract JSON even if the model adds markdown codeblocks or extra text
+            clean_str = str(response).strip()
+            # Strip markdown block formatting if present
+            if "```" in clean_str:
+                code_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", clean_str, re.DOTALL)
+                if code_match:
+                    clean_str = code_match.group(1)
 
-            clean_json = match.group()
-            result = json.loads(clean_json)
+            match = re.search(r"\{.*\}", clean_str, re.DOTALL)
+            if not match:
+                raise ValueError("No valid JSON found in LLM response")
+
+            result = json.loads(match.group())
 
             priority = result.get("priority")
             if not priority or not isinstance(priority, str):
@@ -129,15 +156,25 @@ class AssessmentAgent:
             if not reason or not isinstance(reason, str):
                 reason = "AI-generated assessment completed."
 
+            elapsed = time.time() - start_t
+            logger.info(
+                "AI assessment succeeded | source=Local Ollama (qwen2.5:7b) | elapsed=%.2fs | priority=%s | resources=%d",
+                elapsed, priority.upper().strip(), len(resources)
+            )
+
             return {
                 "priority": priority.upper().strip(),
                 "resources": [str(r).strip() for r in resources if str(r).strip()],
                 "reason": reason.strip(),
+                "source": "Local Ollama (qwen2.5:7b)",
             }
 
         except Exception as err:
+            elapsed = time.time() - start_t
             logger.warning(
-                "LLM assessment unavailable, timed out, or returned invalid output: %s. Using deterministic fallback.",
-                err,
+                "LLM assessment unavailable, timed out, or returned invalid output after %.2fs (%s: %s). Activating Deterministic Fallback.",
+                elapsed, type(err).__name__, err,
             )
-            return self._deterministic_fallback(incident)
+            fallback = self._deterministic_fallback(incident)
+            fallback["source"] = "Deterministic Fallback"
+            return fallback

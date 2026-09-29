@@ -7,12 +7,15 @@ Never prints or exposes secrets.
 
 import hashlib
 import html
+import logging
 import os
 import time
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 import resend
+
+logger = logging.getLogger(__name__)
 
 
 class NotificationService:
@@ -348,3 +351,53 @@ class NotificationService:
             "skipped": skipped_count,
             "results": results,
         }
+
+    def dispatch_reporter_notification(
+        self,
+        incident: Any,
+        mission_id: int,
+        mission_status: str,
+        approval_status: str,
+        assessment: Optional[Dict[str, Any]] = None,
+        rescue_plan: Optional[Dict[str, Any]] = None,
+        hospitals: Optional[List[Dict[str, Any]]] = None,
+        shelters: Optional[List[Dict[str, Any]]] = None,
+        volunteer_allocation: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """Prepare and dispatch a clean, single-point status notification to the incident reporter."""
+        from agents.communication.communication_agent import CommunicationAgent
+
+        agent = CommunicationAgent()
+        msg_payload = agent.prepare_reporter_message(
+            incident=incident,
+            mission_id=mission_id,
+            mission_status=mission_status,
+            approval_status=approval_status,
+            assessment=assessment,
+            rescue_plan=rescue_plan,
+            hospitals=hospitals,
+            shelters=shelters,
+            volunteer_allocation=volunteer_allocation,
+        )
+
+        contact = str(msg_payload.get("contact") or "").strip()
+        recipient_email = contact if "@" in contact else (os.getenv("RESEND_EMAIL_RECIPIENT") or "").strip()
+
+        logger.info(
+            "Dispatching reporter notification | mission_id=%s | status=%s | mode=%s",
+            mission_id,
+            mission_status,
+            self.mode,
+        )
+
+        return self._dispatch_email(
+            to_email=recipient_email,
+            subject=msg_payload["subject"],
+            body=msg_payload["body"],
+            target="incident_reporter",
+            recipient_name=msg_payload.get("recipient", "Emergency Reporter"),
+            priority=msg_payload.get("priority", "HIGH"),
+            mission_id=mission_id,
+            reason=f"Reporter operational update: {mission_status}",
+            context=f"Mission #{mission_id} ({mission_status})",
+        )

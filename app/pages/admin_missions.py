@@ -177,11 +177,18 @@ shelter_reservation = plan_data.get("shelter_reservation") or {}
 reflection = plan_data.get("reflection") or {}
 
 # Model Attribution Logic
-is_fallback = "deterministic severity score" in reason.lower() or reason.startswith("Automated assessment for")
-if is_fallback:
-    model_badge_html = '<span class="model-pill fallback">⚙️ Domain Rule Engine (Deterministic Fallback)</span>'
+ass_source = assessment_data.get("source") or ""
+if ass_source:
+    if "ollama" in ass_source.lower():
+        model_badge_html = '<span class="model-pill ollama">🦙 Local Ollama (qwen2.5:7b)</span>'
+    else:
+        model_badge_html = '<span class="model-pill fallback">⚙️ Deterministic Fallback</span>'
 else:
-    model_badge_html = '<span class="model-pill ollama">🦙 Local Ollama (qwen2.5:7b)</span>'
+    is_fallback = "deterministic severity score" in reason.lower() or reason.startswith("Automated assessment for")
+    if is_fallback:
+        model_badge_html = '<span class="model-pill fallback">⚙️ Deterministic Fallback</span>'
+    else:
+        model_badge_html = '<span class="model-pill ollama">🦙 Local Ollama (qwen2.5:7b)</span>'
 
 # Header Overview Card
 st.markdown(

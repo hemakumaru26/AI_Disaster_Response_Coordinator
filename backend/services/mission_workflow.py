@@ -1,8 +1,11 @@
 """Minimal LangGraph orchestration for the disaster-response agent sequence."""
 
+import logging
 from typing import Any, TypedDict
 
 from langgraph.graph import END, START, StateGraph
+
+logger = logging.getLogger(__name__)
 
 from backend.models.incident_model import get_incident_by_id
 from backend.models.mission_model import (
@@ -248,26 +251,43 @@ class MissionWorkflow:
             return self._failure("volunteer", error)
 
     def planning_node(self, state: MissionWorkflowState):
-        """Compose supplied component outputs into the existing rescue-plan format."""
+        """Compose supplied component outputs into the existing rescue-plan format with experience-based adaptation."""
         if blocked := self._blocked(state):
             return blocked
         try:
+            disaster_type = self._incident_value(state["incident"], "disaster_type") or ""
+            location = state.get("incident_district") or self._incident_value(state["incident"], "location") or ""
+            past_experiences = []
+            try:
+                past_experiences = self._reflection_agent().retrieve_similar_experiences(
+                    disaster_type=disaster_type,
+                    location=location,
+                    exclude_mission_id=state.get("mission_id"),
+                    connection=self.mission_connection,
+                )
+            except Exception as exp_err:
+                logger.warning("Could not retrieve past experiences for planning: %s", exp_err)
+
+            plan = self._planning_agent().create_plan(
+                incident=state["incident"],
+                assessment=state["assessment"],
+                hospitals=state.get("hospitals", []),
+                shelters=state.get("shelters", []),
+                volunteer_allocation=state.get("volunteer_allocation"),
+                rag_context=state.get("rag_context"),
+                past_experiences=past_experiences,
+            )
+            logger.info("Node: Planning completed | status=planned | past_experiences=%d", len(past_experiences))
             return {
-                "rescue_plan": self._planning_agent().create_plan(
-                    incident=state["incident"],
-                    assessment=state["assessment"],
-                    hospitals=state.get("hospitals", []),
-                    shelters=state.get("shelters", []),
-                    volunteer_allocation=state.get("volunteer_allocation"),
-                    rag_context=state.get("rag_context"),
-                ),
+                "rescue_plan": plan,
                 "status": "planned",
             }
         except Exception as error:
+            logger.error("Node: Planning failed: %s", error)
             return self._failure("planning", error)
 
     def mission_persistence_node(self, state: MissionWorkflowState):
-        """Persist the completed plan and stop at the approval boundary."""
+        """Persist the completed plan, notify reporter of intake, and stop at the approval boundary."""
         if blocked := self._blocked(state):
             return blocked
         try:
@@ -288,12 +308,35 @@ class MissionWorkflow:
             )
             if mission is None:
                 raise RuntimeError("mission could not be updated for approval")
+
+            logger.info(
+                "Mission saved | mission_id=%d | status=AWAITING_APPROVAL | approval_status=PENDING",
+                mission["mission_id"],
+            )
+
+            # Send clean initial acknowledgment email to reporter (status: Awaiting approval)
+            try:
+                self._notification_service().dispatch_reporter_notification(
+                    incident=state["incident"],
+                    mission_id=mission["mission_id"],
+                    mission_status="AWAITING_APPROVAL",
+                    approval_status="PENDING",
+                    assessment=state.get("assessment"),
+                    rescue_plan=state.get("rescue_plan"),
+                    hospitals=state.get("hospitals"),
+                    shelters=state.get("shelters"),
+                    volunteer_allocation=state.get("volunteer_allocation"),
+                )
+            except Exception as notif_err:
+                logger.warning("Reporter initial notification error: %s", notif_err)
+
             return {
                 "mission_id": mission["mission_id"],
                 "mission": mission,
                 "status": "awaiting_approval",
             }
         except Exception as error:
+            logger.error("Node: Mission persistence failed: %s", error)
             return self._failure("mission persistence", error)
 
     def _get_pending_mission(self, mission_id):
@@ -438,14 +481,32 @@ class MissionWorkflow:
         if active_mission is None:
             raise RuntimeError(f"Mission {mission_id} activation failed.")
 
+        # Dispatch clean operational status notification to reporter (status: ACTIVE)
+        try:
+            self._notification_service().dispatch_reporter_notification(
+                incident=incident,
+                mission_id=mission_id,
+                mission_status="ACTIVE",
+                approval_status="APPROVED",
+                assessment=assessment_data,
+                rescue_plan=rescue_plan_data,
+                hospitals=hospitals,
+                shelters=shelters,
+                volunteer_allocation=volunteer_allocation,
+            )
+        except Exception as notif_err:
+            logger.warning("Reporter active notification error: %s", notif_err)
+
         result = dict(active_mission)
         result["mission"] = active_mission
         result["communications"] = communications
         result["notification_dispatch"] = notification_dispatch
         return result
 
-    def reject_mission(self, mission_id, feedback=None):
+    def reject_mission(self, mission_id, feedback=None, reason=None):
         """Reject a pending mission, release volunteers, and transition to REPLANNING."""
+        if feedback is None and reason is not None:
+            feedback = reason
         pending_mission = self._get_pending_mission(mission_id)
         incident_id = pending_mission.get("incident_id")
         released_volunteers = release_incident_volunteers(
@@ -481,6 +542,20 @@ class MissionWorkflow:
         if replanning_mission is None:
             raise RuntimeError(f"Mission {mission_id} replanning update failed.")
 
+        # Dispatch clean notification to reporter (status: REPLANNING)
+        try:
+            inc_obj = get_incident_by_id(incident_id, connection=self.mission_connection)
+            self._notification_service().dispatch_reporter_notification(
+                incident=inc_obj,
+                mission_id=mission_id,
+                mission_status="REPLANNING",
+                approval_status="REJECTED",
+                assessment=pending_mission.get("assessment_data"),
+                rescue_plan=pending_mission.get("rescue_plan_data"),
+            )
+        except Exception as notif_err:
+            logger.warning("Reporter rejection notification error: %s", notif_err)
+
         result = dict(replanning_mission)
         result["mission"] = replanning_mission
         result["released_volunteers"] = released_volunteers
@@ -488,8 +563,10 @@ class MissionWorkflow:
             result["feedback"] = clean_feedback
         return result
 
-    def replan_mission(self, mission_id, feedback=None):
+    def replan_mission(self, mission_id, feedback=None, additional_feedback=None):
         """Reflect on identified gaps and feedback to generate a revised rescue plan."""
+        if feedback is None and additional_feedback is not None:
+            feedback = additional_feedback
         if not isinstance(mission_id, int) or mission_id < 1:
             raise ValueError("mission_id must be a positive integer.")
         mission = get_mission_by_id(mission_id, connection=self.mission_connection)
@@ -551,6 +628,7 @@ class MissionWorkflow:
         hospitals = rescue_plan_data.get("hospital_plan", [])
         shelters = rescue_plan_data.get("shelter_plan", [])
         rag_context = rescue_plan_data.get("rag_context")
+        past_experiences = reflection.get("past_experiences") or []
 
         # 3. Create revised plan with PlanningAgent
         revised_plan = self._planning_agent().create_plan(
@@ -560,6 +638,7 @@ class MissionWorkflow:
             shelters=shelters,
             volunteer_allocation=volunteer_alloc,
             rag_context=rag_context,
+            past_experiences=past_experiences,
         )
 
         # 4. Embed reflection in rescue_plan_data
@@ -640,6 +719,31 @@ class MissionWorkflow:
         )
         if completed_mission is None:
             raise RuntimeError(f"Mission {mission_id} completion failed.")
+
+        # Record operational experience reflection upon mission completion
+        incident = None
+        try:
+            incident = get_incident_by_id(incident_id, connection=self.mission_connection)
+            self._reflection_agent().reflect_on_completion(
+                mission=completed_mission,
+                incident=incident,
+                connection=self.mission_connection,
+            )
+        except Exception as ref_err:
+            logger.warning("Completion reflection error: %s", ref_err)
+
+        # Send completion notification to reporter (status: Completed)
+        try:
+            self._notification_service().dispatch_reporter_notification(
+                incident=incident,
+                mission_id=mission_id,
+                mission_status="COMPLETED",
+                approval_status="APPROVED",
+                assessment=completed_mission.get("assessment_data"),
+                rescue_plan=completed_mission.get("rescue_plan_data"),
+            )
+        except Exception as notif_err:
+            logger.warning("Reporter completion notification error: %s", notif_err)
 
         result = dict(completed_mission)
         result["mission"] = completed_mission

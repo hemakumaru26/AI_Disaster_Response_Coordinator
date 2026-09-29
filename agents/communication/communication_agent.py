@@ -310,56 +310,151 @@ class CommunicationAgent:
 
     def prepare_reporter_message(
         self,
-        incident_meta: Dict[str, Any],
-        priority: str,
-        hospitals: Optional[List[Dict[str, Any]]],
-        shelters: Optional[List[Dict[str, Any]]],
-        mission_id: Optional[int],
+        incident_meta: Optional[Dict[str, Any]] = None,
+        priority: str = "HIGH",
+        hospitals: Optional[List[Dict[str, Any]]] = None,
+        shelters: Optional[List[Dict[str, Any]]] = None,
+        mission_id: Optional[int] = None,
+        mission_status: str = "AWAITING_APPROVAL",
+        approval_status: str = "PENDING",
+        assessment: Optional[Dict[str, Any]] = None,
+        volunteer_allocation: Optional[Dict[str, Any]] = None,
+        rescue_plan: Optional[Dict[str, Any]] = None,
+        incident: Optional[Any] = None,
     ) -> Dict[str, Any]:
-        """Generate an acknowledgment and safety advisory update for the incident reporter."""
-        incident_id_str = f"#{incident_meta['incident_id']}" if incident_meta["incident_id"] else "your report"
-        subject = f"Emergency Services Update: Incident {incident_id_str} Acknowledged"
+        """Generate an acknowledgment and clean operational status update for the incident reporter."""
+        if incident_meta is None and incident is not None:
+            incident_meta = self._extract_incident_metadata(incident)
+        elif incident_meta is None:
+            incident_meta = self._extract_incident_metadata({})
+        elif not isinstance(incident_meta, dict) or "disaster_type" not in incident_meta:
+            incident_meta = self._extract_incident_metadata(incident_meta)
 
-        nearest_shelter_note = ""
-        if shelters and isinstance(shelters, list) and isinstance(shelters[0], dict):
-            s_name = shelters[0].get("name", "Designated Shelter")
-            s_dist = shelters[0].get("distance_km")
-            dist_txt = f" (approx. {s_dist} km away)" if s_dist is not None else ""
-            nearest_shelter_note = f"\n- Designated Emergency Shelter: {s_name}{dist_txt}"
+        m_id_str = f"{mission_id}" if mission_id else "PENDING"
+        disaster_type = incident_meta.get("disaster_type", "Emergency")
+        location = incident_meta.get("location", "Tamil Nadu")
+        people_affected = incident_meta.get("people_affected", 1)
 
-        nearest_hospital_note = ""
-        if hospitals and isinstance(hospitals, list) and isinstance(hospitals[0], dict):
-            h_name = hospitals[0].get("name", "Nearest Hospital")
-            h_dist = hospitals[0].get("straight_distance_km")
-            dist_txt = f" (approx. {h_dist} km away)" if h_dist is not None else ""
-            nearest_hospital_note = f"\n- Nearest Medical Facility: {h_name}{dist_txt}"
+        # Priority resolution
+        if assessment and isinstance(assessment, dict) and assessment.get("priority"):
+            priority = str(assessment["priority"]).upper().strip()
+        else:
+            priority = (priority or "HIGH").upper().strip()
+
+        # Mission status and approval resolution
+        norm_m_status = (mission_status or "AWAITING_APPROVAL").upper().strip()
+        norm_app_status = (approval_status or "PENDING").upper().strip()
+
+        if norm_m_status in ("AWAITING_APPROVAL", "CREATED", "PENDING"):
+            status_text = "Awaiting approval"
+            approval_text = "Awaiting approval"
+            eta_text = "15 - 25 mins (approximate arrival window once approved)"
+            vol_text = "Volunteer assistance on standby"
+        elif norm_m_status in ("ACTIVE", "APPROVED"):
+            status_text = "ACTIVE"
+            approval_text = "Approved"
+            eta_text = "15 - 25 mins"
+            vol_text = "Rescue team assigned"
+        elif norm_m_status in ("REPLANNING", "REJECTED"):
+            status_text = "REPLANNING"
+            approval_text = "Rejected"
+            eta_text = "Under review (replanning deployment)"
+            vol_text = "Volunteer assistance on standby"
+        elif norm_m_status in ("COMPLETED", "RESOLVED"):
+            status_text = "COMPLETED"
+            approval_text = "Approved"
+            eta_text = "Completed"
+            vol_text = "Rescue operations completed"
+        else:
+            status_text = norm_m_status.title()
+            approval_text = norm_app_status.title()
+            eta_text = "15 - 25 mins"
+            vol_text = "Rescue team assigned"
+
+        # Shelter name
+        shelter_name = "Assigned District Relief Centre"
+        if shelters and isinstance(shelters, list) and len(shelters) > 0 and isinstance(shelters[0], dict):
+            s = shelters[0]
+            s_name = s.get("name") or shelter_name
+            s_dist = s.get("district", "")
+            shelter_name = f"{s_name} ({s_dist})" if s_dist else s_name
+
+        # Hospital name
+        hospital_name = "District General Hospital (Standby)"
+        if hospitals and isinstance(hospitals, list) and len(hospitals) > 0 and isinstance(hospitals[0], dict):
+            h = hospitals[0]
+            h_name = h.get("name") or hospital_name
+            h_dist = h.get("district", "")
+            hospital_name = f"{h_name} ({h_dist})" if h_dist else h_name
+
+        # Resources string
+        res_list = []
+        if assessment and isinstance(assessment, dict) and assessment.get("resources"):
+            res_list = assessment["resources"]
+        elif rescue_plan and isinstance(rescue_plan, dict) and rescue_plan.get("required_resources"):
+            res_list = rescue_plan["required_resources"]
+        res_str = ", ".join(res_list) if res_list else "Rapid Assessment & Relief Team"
+
+        # AI assessment explanation
+        ai_assessment_text = ""
+        if assessment and isinstance(assessment, dict) and assessment.get("reason"):
+            ai_assessment_text = str(assessment["reason"]).strip()
+        elif rescue_plan and isinstance(rescue_plan, dict) and rescue_plan.get("risk_notes"):
+            notes = [n for n in rescue_plan["risk_notes"] if not str(n).startswith("[Experience")]
+            if notes:
+                ai_assessment_text = str(notes[0]).strip()
+        if not ai_assessment_text:
+            ai_assessment_text = (
+                f"Emergency incident response for {disaster_type} at {location} "
+                f"evaluated with {priority} priority based on {people_affected} affected citizens."
+            )
+
+        subject = f"EMERGENCY RESPONSE: Mission #{m_id_str} — {disaster_type} ({location})"
 
         body = (
-            f"EMERGENCY RESPONSE STATUS UPDATE\n"
-            f"Dear {incident_meta['reporter_name']},\n\n"
-            f"Your report regarding the {incident_meta['disaster_type']} at {incident_meta['location']} "
-            f"has been received and logged under Incident {incident_id_str}.\n"
-            f"Assessment Priority: {priority}.\n"
-            f"Emergency coordination is currently active.{nearest_hospital_note}{nearest_shelter_note}\n\n"
-            f"Safety Guidance:\n"
-            f"- Stay in a safe, structurally sound location and avoid hazardous areas.\n"
-            f"- Keep phone lines clear for emergency communications.\n"
-            f"- Await instructions from emergency first responders."
+            f"EMERGENCY RESPONSE\n\n"
+            f"Mission #{m_id_str}\n\n"
+            f"{disaster_type} — {location}\n\n"
+            f"Priority:\n"
+            f"{priority}\n\n"
+            f"Incident Status:\n"
+            f"{status_text}\n\n"
+            f"Human Approval:\n"
+            f"{approval_text}\n\n"
+            f"Rescue / Response ETA:\n"
+            f"{eta_text}\n\n"
+            f"Shelter:\n"
+            f"{shelter_name}\n\n"
+            f"Hospital:\n"
+            f"{hospital_name}\n\n"
+            f"Volunteer / Rescue Team:\n"
+            f"{vol_text}\n\n"
+            f"People Affected:\n"
+            f"{people_affected}\n\n"
+            f"Required/Assigned Resources:\n"
+            f"{res_str}\n\n"
+            f"AI Assessment:\n"
+            f"{ai_assessment_text}\n\n"
+            f"Helpline:\n"
+            f"1070\n\n"
+            f"Important Instructions:\n"
+            f"Please follow local authority and emergency coordinator instructions."
         )
 
         return {
             "mission_id": mission_id,
             "communication_status": self.COMMUNICATION_STATUS,
             "target": "incident_reporter",
-            "recipient": incident_meta["reporter_name"],
-            "contact": incident_meta["phone"],
-            "channel": "sms",
+            "recipient": incident_meta.get("reporter_name", "Emergency Reporter"),
+            "contact": incident_meta.get("phone"),
+            "channel": "email",
             "subject": subject,
             "title": subject,
             "message": body,
+            "body": body,
             "priority": priority,
-            "reason": f"Incident acknowledgment and safety update for {incident_meta['reporter_name']}.",
-            "context": f"Public safety advisory for incident {incident_id_str} in {incident_meta['location']}.",
+            "reason": f"Operational status update for mission #{m_id_str}.",
+            "context": f"Public emergency update for {disaster_type} in {location}.",
         }
 
     def generate_communications(
@@ -441,6 +536,11 @@ class CommunicationAgent:
             hospitals=hospitals,
             shelters=shelters,
             mission_id=mission_id,
+            mission_status="ACTIVE",
+            approval_status="APPROVED",
+            assessment=assessment,
+            volunteer_allocation=volunteer_allocation,
+            rescue_plan=rescue_plan,
         )
         messages.append(reporter_msg)
 

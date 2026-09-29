@@ -72,6 +72,7 @@ class PlanningAgent:
         shelters=None,
         volunteer_allocation=None,
         rag_context=None,
+        past_experiences=None,
     ):
         """Create a structured plan from supplied outputs without inventing data."""
         hospitals = [] if hospitals is None else hospitals
@@ -131,6 +132,17 @@ class PlanningAgent:
         assessment_reason = assessment.get("reason")
         if isinstance(assessment_reason, str) and assessment_reason.strip():
             risk_notes.append(assessment_reason.strip())
+
+        # Experience-based adaptation from historical incident outcomes
+        if past_experiences and isinstance(past_experiences, list) and len(past_experiences) > 0:
+            exp_count = len(past_experiences)
+            risk_notes.append(f"[Experience-Based Adaptation] Informed by {exp_count} prior similar incident(s).")
+            for exp in past_experiences[:2]:
+                if isinstance(exp, dict):
+                    lesson = exp.get("lessons_learned") or exp.get("summary")
+                    if lesson:
+                        risk_notes.append(f"Historical Experience: {lesson}")
+
         if resource_gaps:
             risk_notes.append("Resolve identified resource gaps before activation.")
 
@@ -147,6 +159,10 @@ class PlanningAgent:
             response_steps.append("Prepare the supplied shelter options for evacuation.")
         if volunteer_plan:
             response_steps.append("Brief and deploy assigned volunteers.")
+        if past_experiences and len(past_experiences) > 0:
+            response_steps.append(
+                f"Apply operational adaptations informed by {len(past_experiences)} prior incident experience(s)."
+            )
         if resource_gaps:
             response_steps.append("Escalate unresolved resource gaps to the coordinator.")
 
@@ -159,6 +175,7 @@ class PlanningAgent:
             "shelter_plan": list(shelters),
             "volunteer_plan": volunteer_plan,
             "rag_context": rag_context,
+            "past_experiences": list(past_experiences) if past_experiences else [],
             "response_steps": response_steps,
             "resource_gaps": resource_gaps,
             "risk_notes": risk_notes,
